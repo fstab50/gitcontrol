@@ -1,12 +1,12 @@
 """
 Summary:
-    keyup Project-level Defaults and Settings
+    gitin Project-level Defaults and Settings
 
     - **Local Default Settings**: Local defaults for your specific installation are derived from settings found in:
 
     .. code-block:: bash
 
-        ~/.config/keyup/config.json
+        ~/.config/gitin/config.json
 
 Module Attributes:
     - user_home (TYPE str):
@@ -16,19 +16,19 @@ Module Attributes:
     - config_path (TYPE str):
         default for stsaval config files, includes config_dir (~/.stsaval)
     - key_deprecation (TYPE str):
-        Deprecation logic that keyup uses when 2 keys exist for a user.
+        Deprecation logic that gitin uses when 2 keys exist for a user.
 
         2 values possible:
 
-            - 'AGE':  keyup deprecates based on age, replacing the oldest key
-            - 'AWSCLI':  keyup replaces keys currently in the local awscli config
+            - 'AGE':  gitin deprecates based on age, replacing the oldest key
+            - 'AWSCLI':  gitin replaces keys currently in the local awscli config
 """
 
 import os
 import inspect
 import logging
-from keyup.script_utils import read_local_config, get_os, os_parityPath
-from keyup import __version__
+from gitin.script_utils import read_local_config, get_os, os_parityPath
+from gitin import __version__
 
 logger = logging.getLogger(__version__)
 logger.setLevel(logging.INFO)
@@ -53,7 +53,7 @@ else:
     # section with appropriate pathnames
 
     # project
-    PACKAGE = 'keyup'
+    PACKAGE = 'gitin'
     LICENSE = 'GPL v3'
     LICENSE_DESC = 'General Public License v3'
     version = __version__
@@ -73,7 +73,7 @@ else:
     # logging parameters
     enable_logging = False
     log_mode = 'FILE'
-    log_filename = 'keyup.log'
+    log_filename = 'gitin.log'
     log_dir = user_home + '/' + 'logs'
     log_path = log_dir + '/' + log_filename
 

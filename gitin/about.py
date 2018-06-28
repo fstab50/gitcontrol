@@ -11,15 +11,15 @@ Returns:
 
 import sys
 import datetime
-from keyup.statics import PACKAGE, LICENSE
-from keyup.colors import Colors
-from keyup import __version__
+from gitin.statics import PACKAGE, LICENSE
+from gitin.colors import Colors
+from gitin import __version__
 
 
 # url formatting
-url_doc = Colors.URL + 'https://keyup.readthedocs.io' + Colors.RESET
-url_sc = Colors.URL + 'https://bitbucket.org/blakeca00/keyup' + Colors.RESET
-url_lic = Colors.URL + 'http://keyup.readthedocs.io/en/latest/license.html' + Colors.RESET
+url_doc = Colors.URL + 'https://gitin.readthedocs.io' + Colors.RESET
+url_sc = Colors.URL + 'https://bitbucket.org/blakeca00/gitin' + Colors.RESET
+url_lic = Colors.URL + 'http://gitin.readthedocs.io/en/latest/license.html' + Colors.RESET
 url_aws = Colors.URL + 'https://aws.amazon.com' + Colors.RESET
 
 # aws header
