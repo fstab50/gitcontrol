@@ -100,7 +100,7 @@ Redhat Enterprise Linux v7.X / Centos 7.X
 
 .. code:: bash
 
-        $ sudo -H pip3 install keyup
+        $ sudo -H pip3 install giteven
 
 -  :ref:`verify`
 
@@ -142,7 +142,7 @@ Ubuntu v16.04+, Ubuntu Variants
 
 .. code:: bash
 
-        $ sudo -H pip3 install keyup
+        $ sudo -H pip3 install giteven
 
 -  :ref:`verify`
 
@@ -165,11 +165,11 @@ Amazon Linux v2016+
 
         $ sudo yum install python35-pip / python34-pip    # latest your distribution supports
 
--  Install keyup:
+-  Install giteven:
 
 .. code:: bash
 
-        $ sudo -H pip3 install keyup
+        $ sudo -H pip3 install giteven
 
 -  :ref:`verify`
 
@@ -184,11 +184,11 @@ Microsoft Windows 7
 
 -  Install Python3 by downloading the latest `Python3 version for Windows <https://www.python.org/downloads/windows/>`__
 
-- Install keyup:
+- Install giteven:
 
 .. code:: powershell
 
-    $ pip3 install keyup
+    $ pip3 install giteven
 
 -  :ref:`verify`
 
@@ -203,11 +203,11 @@ Microsoft Windows 10
 
 -  Install Python3 by downloading the latest `Python3 version for Windows <https://www.python.org/downloads/windows/>`__
 
-- Install keyup:
+- Install giteven:
 
 .. code:: powershell
 
-    $ pip3 install keyup
+    $ pip3 install giteven
 
 -  :ref:`verify`
 
@@ -222,13 +222,13 @@ Build Source Code
 
 To install locally from source code, do the following:
 
-Check out the ``keyup`` code repository:
+Check out the ``giteven`` code repository:
 
 .. code:: bash
 
-    $ git clone https://blakeca00@bitbucket.org/blakeca00/keyup.git
+    $ git clone https://blakeca00@bitbucket.org/blakeca00/giteven.git
 
-    $ cd keyup/
+    $ cd giteven/
 
 Display the list of make targets:
 
@@ -259,10 +259,10 @@ Verify Your Installation
 
 .. code:: bash
 
-    $ keyup --version
+    $ giteven --version
 
 
-.. figure:: ../assets/keyup-version.png
+.. figure:: ../assets/giteven-version.png
 
 Back to :ref:`install` Table of Contents
 
