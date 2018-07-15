@@ -18,12 +18,8 @@ from giteven import __version__
 
 # url formatting
 url_doc = Colors.URL + 'https://giteven.readthedocs.io' + Colors.RESET
-url_sc = Colors.URL + 'https://bitbucket.org/blakeca00/giteven' + Colors.RESET
+url_sc = Colors.URL + 'https://github.com/fstab50/giteven' + Colors.RESET
 url_lic = Colors.URL + 'http://giteven.readthedocs.io/en/latest/license.html' + Colors.RESET
-url_aws = Colors.URL + 'https://aws.amazon.com' + Colors.RESET
-
-# aws header
-aws_title = Colors.ORANGE + 'Amazon Web Services' + Colors.RESET
 
 # copyright range thru current calendar year
 current_year = datetime.datetime.today().year
