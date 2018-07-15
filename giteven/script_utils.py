@@ -28,9 +28,15 @@ from giteven.colors import Colors
 from giteven import __version__
 
 # globals
-MODULE_VERSION = '1.12'
-logger = logging.getLogger(__version__)
-logger.setLevel(logging.INFO)
+MODULE_VERSION = '1.14'
+
+try:
+    from giteven import logd
+    logger = logd.getLogger(__version__)
+except Exception:
+    logger = logging.getLogger(__version__)
+    logger.setLevel(logging.INFO)
+
 
 
 def bool_assignment(arg, patterns=None):
@@ -463,6 +469,7 @@ def stdout_message(message, prefix='INFO', quiet=False,
             print(header.expandtabs(tabspaces) + str(message))
         else:
             print('\n' + header.expandtabs(tabspaces) + str(message) + '\n')
+        logger.info(message)
     return True
 
 
