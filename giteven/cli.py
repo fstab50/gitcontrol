@@ -20,7 +20,7 @@ from giteven.help_menu import menu_body
 from giteven.script_utils import export_json_object, import_file_object, read_local_config
 from giteven.script_utils import stdout_message, bool_assignment, debug_mode, os_parityPath
 from giteven.colors import Colors
-from giteven import logd, __version__
+from giteven import about, logd, __version__
 
 try:
     from giteven.oscodes_unix import exit_codes
