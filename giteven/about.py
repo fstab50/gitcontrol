@@ -46,7 +46,7 @@ title_separator = (
     )
 
 package_header = (
-    '\n    ' + Colors.CYAN + PACKAGE + Colors.RESET + ' version: ' + Colors.WHITE +
+    '\n\t\t' + Colors.CYAN + PACKAGE + Colors.RESET + ' version: ' + Colors.WHITE +
     Colors.BOLD + __version__ + Colors.RESET + '  |  ' + python_header + '\n\n'
     )
 
@@ -64,14 +64,4 @@ about_object = """
 
     __________________________________________________________________
 
-
-         Automated Access Key Rotation for Amazon Web Services
-
-               - Documentation  :  """ + url_doc + """
-               - Source : """ + url_sc + """
-
-
-               Amazon Web Services   |   """ + url_aws + """
-
-    __________________________________________________________________
 """ + copyright
