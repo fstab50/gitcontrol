@@ -9,6 +9,7 @@ Module Args:
 
 """
 import os
+import sys
 import inspect
 import platform
 import subprocess
@@ -51,9 +52,15 @@ def build_index(root):
     """
     index = []
     for path in locate_repositories(root):
-        index.append[
-            {}
-        ]
+        if path:
+            index.append(
+                {
+                    "location": path,
+                    "path": '/'.join(path.split('/')[:-1])
+                    "repo": source_url(path)
+                }
+            )
+    return index
 
 
 def locate_repositories(origin):
@@ -99,3 +106,12 @@ def source_url(path):
             )
         return ''
     return url
+
+
+def main():
+    """ Main """
+    print(json.dumps(build_index(os.path.join(home, 'git'), indent=4)))
+
+
+if __name__ == '__main__':
+    sys.exit(main())
