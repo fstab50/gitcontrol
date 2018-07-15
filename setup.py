@@ -29,13 +29,7 @@ import giteven
 
 
 requires = [
-    'awscli',
-    'botocore',
-    'docutils',
-    'jmespath',
-    'Pygments',
-    's3transfer',
-    'six'
+    'Pygments'
 ]
 
 
@@ -83,6 +77,7 @@ setup(
         'Programming Language :: Python :: 3.6',
         'License :: OSI Approved :: MIT License',
         'Operating System :: POSIX :: Linux',
+        'Operating System :: Microsoft :: Windows'
     ],
     keywords='git code versioning cli utilities',
     packages=find_packages(exclude=['docs', 'scripts', 'assets']),
@@ -90,8 +85,7 @@ setup(
     python_requires='>=3.4, <4',
     entry_points={
         'console_scripts': [
-            'giteven=giteven.cli:init_cli',
-            'geconfig=giteven.cli:option_configure'
+            'giteven=giteven.cli:main'
         ]
     },
     zip_safe=False
