@@ -85,7 +85,8 @@ setup(
     python_requires='>=3.4, <4',
     entry_points={
         'console_scripts': [
-            'giteven=giteven.cli:init_cli'
+            'giteven=giteven.cli:init_cli',
+            'gitconfig=giteven.cli:display_config'
         ]
     },
     zip_safe=False
