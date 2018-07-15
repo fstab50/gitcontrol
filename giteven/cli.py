@@ -27,8 +27,9 @@ try:
     os_type = 'Linux'
     user_home = os.getenv('HOME')
     splitchar = '/'                             # character for splitting paths (linux)
-    ACCENT = Colors.BLUE
+    ACCENT = Colors.ORANGE
     TEXT = Colors.LT2GRAY
+    TITLE = Colors.WHITE + Colors.BOLD
 except Exception:
     from giteven.oscodes_win import exit_codes    # non-specific os-safe codes
     os_type = 'Windows'
@@ -36,6 +37,7 @@ except Exception:
     splitchar = '\\'                            # character for splitting paths (windows)
     ACCENT = Colors.CYAN
     TEXT = Colors.LT2GRAY
+    TITLE = Colors.WHITE + Colors.BOLD
 
 
 # globals
@@ -71,10 +73,11 @@ def write_index(display=False):
     output_file = 'repository.json'
     output_path = os.path.join(user_home, 'Backup/usr/' + output_file)
     if display:
+        export_json_object(dict_obj=index_list)
+        summary(index_list)
         return export_json_object(
                     dict_obj=index_list,
-                    filename=output_path,
-                    diplay=True
+                    filename=output_path
                 )
     return export_json_object(dict_obj=index_list, filename=output_path)
 
@@ -135,6 +138,15 @@ def source_url(path):
         # NOTE: >> add repo to exception list here <<
         return ''
     return url
+
+
+def summary(repository_list):
+    """ Prints summary stats """
+    count = len(repository_list)
+    stdout_message(
+        '%s Local git repositories detected and indexed' %
+        (TITLE + str(count) + Colors.RESET))
+    return True
 
 
 def main():
