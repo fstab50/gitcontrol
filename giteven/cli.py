@@ -50,6 +50,8 @@ def build_index(root):
     Summary:
         - Operation to index local git repositories
         - Create index in the form of json configuration file
+        - Returns object containing list of dictionaries, 1 per
+          git repository
     Args:
     Returns:
         - index, TYPE: list
