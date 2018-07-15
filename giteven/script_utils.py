@@ -24,8 +24,8 @@ import re
 import logging
 import inspect
 from pygments import highlight, lexers, formatters
-from gitin.colors import Colors
-from gitin import __version__
+from giteven.colors import Colors
+from giteven import __version__
 
 # globals
 MODULE_VERSION = '1.11'

@@ -6,8 +6,8 @@ Help Menu
 
 """
 
-from gitin.statics import PACKAGE, CONFIG_SCRIPT
-from gitin.colors import Colors
+from giteven.statics import PACKAGE, CONFIG_SCRIPT
+from giteven.colors import Colors
 
 
 PKG_ACCENT = Colors.ORANGE
@@ -20,8 +20,8 @@ synopsis_cmd = (
     PARAM_ACCENT + '--operation ' + Colors.RESET + '[OPERATION]'
     )
 
-url_doc = Colors.URL + 'http://gitin.readthedocs.io' + Colors.RESET
-url_sc = Colors.URL + 'https://bitbucket.org/blakeca00/gitin' + Colors.RESET
+url_doc = Colors.URL + 'http://giteven.readthedocs.io' + Colors.RESET
+url_sc = Colors.URL + 'https://bitbucket.org/blakeca00/giteven' + Colors.RESET
 
 menu_body = Colors.BOLD + """
   DESCRIPTION""" + Colors.RESET + """

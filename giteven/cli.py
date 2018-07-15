@@ -56,7 +56,7 @@ def build_index(root):
             index.append(
                 {
                     "location": path,
-                    "path": '/'.join(path.split('/')[:-1])
+                    "path": '/'.join(path.split('/')[:-1]),
                     "repo": source_url(path)
                 }
             )
