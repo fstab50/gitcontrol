@@ -1,6 +1,6 @@
 """
 
-gitIn :  Copyright 2018-2019, Blake Huber
+giteven :  Copyright 2018-2019, Blake Huber
 
 This program is free software: you can redistribute it and/or
 modify it under the terms of the MIT License as published by
@@ -25,7 +25,7 @@ from setuptools.command.develop import develop
 from setuptools.command.install import install
 from subprocess import check_call
 from codecs import open
-import gitin
+import giteven
 
 
 requires = [
@@ -65,13 +65,13 @@ class PostInstall(install):
 
 
 setup(
-    name='gitin',
-    version=gitin.__version__,
-    description='Bash Tools for Amazon Web Services',
+    name='giteven',
+    version=giteven.__version__,
+    description='Command line utility for managing local git repositories',
     long_description=read('DESCRIPTION.rst'),
-    url='https://github.com/fstab50/gitin',
-    author=gitin.__author__,
-    author_email=gitin.__email__,
+    url='https://github.com/fstab50/giteven',
+    author=giteven.__author__,
+    author_email=giteven.__email__,
     license='MIT',
     classifiers=[
         'Topic :: System :: Shells',
@@ -84,14 +84,14 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: POSIX :: Linux',
     ],
-    keywords='bash Amazon Web Services AWS tools s3 ec2 lambda',
+    keywords='git code versioning cli utilities',
     packages=find_packages(exclude=['docs', 'scripts', 'assets']),
     install_requires=requires,
     python_requires='>=3.4, <4',
     entry_points={
         'console_scripts': [
-            'gitin=gitin.cli:init_cli',
-            'keyconfig=gitin.cli:option_configure'
+            'giteven=giteven.cli:init_cli',
+            'geconfig=giteven.cli:option_configure'
         ]
     },
     zip_safe=False
