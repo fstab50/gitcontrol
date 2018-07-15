@@ -55,6 +55,18 @@ def build_index(root):
     Args:
     Returns:
         - index, TYPE: list
+        - Format:
+
+         .. code-block:: json
+
+                [
+                    {
+                        "location": fullpath-including-repository,
+                        "path":  path-to-repository (not incl repo),
+                        "source": repository git remote string
+                    }
+                ]
+
     """
     index = []
     for path in locate_repositories(root):
