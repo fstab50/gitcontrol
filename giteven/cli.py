@@ -151,7 +151,7 @@ def summary(repository_list):
     return True
 
 
-def main():
+def main(operation, debug_mode):
     """ Main """
     return True
 
@@ -246,7 +246,7 @@ def init_cli():
             # execute keyset operation
             success = main(
                         operation=args.update,
-                        debug=args.debug
+                        debug_mode=args.debug
                         )
             if success:
                 logger.info('repository operation complete')
