@@ -24,8 +24,8 @@ import re
 import logging
 import inspect
 from pygments import highlight, lexers, formatters
-from keyup.colors import Colors
-from keyup import __version__
+from giteven.colors import Colors
+from giteven import __version__
 
 # globals
 MODULE_VERSION = '1.12'
@@ -292,7 +292,7 @@ def export_json_object(dict_obj, filename=None, display=False):
             if display is True:
                 json_str = json.dumps(dict_obj, indent=4, sort_keys=True)
                 print(highlight(json_str, lexers.JsonLexer(), formatters.TerminalFormatter()))
-                logger.info('%s: successful export to stdout' % inspect.stack()[0][3])            
+                logger.info('%s: successful export to stdout' % inspect.stack()[0][3])
         else:
             json_str = json.dumps(dict_obj, indent=4, sort_keys=True)
             print(highlight(json_str, lexers.JsonLexer(), formatters.TerminalFormatter()))

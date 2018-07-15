@@ -65,6 +65,20 @@ def build_index(root):
     return index
 
 
+def write_index(display=False):
+    stdout_message('Generating index...')
+    index_list = build_index(os.path.join(user_home, 'git'))
+    output_file = 'repository.json'
+    output_path = os.path.join(user_home, 'Backup/usr/' + output_file)
+    if display:
+        return export_json_object(
+                    dict_obj=index_list,
+                    filename=output_path,
+                    diplay=True
+                )
+    return export_json_object(dict_obj=index_list, filename=output_path)
+
+
 def help_menu():
     """
     Displays help menu contents
@@ -125,12 +139,7 @@ def source_url(path):
 
 def main():
     """ Main """
-
-    index_list = build_index(os.path.join(user_home, 'git'))
-    output_file = 'repository.json'
-    output_path = os.path.join(user_home, 'Backup/usr/' + output_file)
-    with open(output_path, 'w') as f1:
-        f1.write(json.dumps(index_list, indent=4))
+    return True
 
 
 def options(parser, help_menu=False):
@@ -140,7 +149,7 @@ def options(parser, help_menu=False):
     Returns:
         TYPE: argparse object, parser argument set
     """
-    parser.add_argument("-b", "--build-index", dest='index', action='store_true', required=False)
+    parser.add_argument("-i", "--index", dest='index', action='store_true', required=False)
     parser.add_argument("-C", "--configure", dest='configure', action='store_true', required=False)
     parser.add_argument("-d", "--debug", dest='debug', action='store_true', required=False)
     parser.add_argument("-h", "--help", dest='help', action='store_true', required=False)
@@ -184,12 +193,10 @@ def init_cli():
         return r
 
     elif args.index:
-        stdout_message('Generating index...')
-        index_list = build_index(os.path.join(user_home, 'git'))
-        output_file = 'repository.json'
-        output_path = os.path.join(user_home, 'Backup/usr/' + output_file)
-        with open(output_path, 'w') as f1:
-            f1.write(json.dumps(index_list, indent=4))
+        if write_index(display=True):
+            sys.exit(exit_codes['EX_OK']['Code'])
+        #with open(output_path, 'w') as f1:
+        #    f1.write(json.dumps(index_list, indent=4))
     else:
         if precheck():              # if prereqs set, run
             # execute keyset operation
