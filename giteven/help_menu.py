@@ -25,7 +25,7 @@ url_sc = Colors.URL + 'https://github.com/fstab50/giteven' + Colors.RESET
 
 menu_body = Colors.BOLD + """
   DESCRIPTION""" + Colors.RESET + """
-            Automated Access Key Rotation for Amazon Web Services
+            Manage local git repositories en mass
 
             Documentation:  """ + url_doc + """
             Source Code:  """ + url_sc + """
