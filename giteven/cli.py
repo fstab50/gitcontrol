@@ -15,7 +15,7 @@ import inspect
 import argparse
 import platform
 import subprocess
-from giteven.statics import PACKAGE, seed_config
+from giteven.statics import PACKAGE, CONFIG_SCRIPT, local_config
 from giteven.help_menu import menu_body
 from giteven.script_utils import export_json_object, import_file_object, read_local_config
 from giteven.script_utils import stdout_message, bool_assignment, debug_mode, os_parityPath
@@ -156,6 +156,35 @@ def main():
     return True
 
 
+def option_configure(debug=False, path=None):
+    """
+    Summary:
+        Initiate configuration menu to customize keyup runtime options.
+        Console script ```keyconfig``` invokes this option_configure directly
+        in debug mode to display the contents of the local config file (if exists)
+    Args:
+        :path (str): full path to default local configuration file location
+        :debug (bool): debug flag, when True prints out contents of local
+         config file
+    Returns:
+        TYPE (bool):  Configuration Success | Failure
+    """
+    if CONFIG_SCRIPT in sys.argv[0]:
+        debug = True    # set debug mode if invoked from CONFIG_SCRIPT
+    if path is None:
+        path = local_config['PROJECT']['CONFIG_PATH']
+    if debug:
+        if os.path.isfile(path):
+            debug_mode('local_config file: ', local_config, debug, halt=True)
+        else:
+            msg = """  Local config file does not yet exist. Run:
+
+            $ keyup --configure """
+            debug_mode(msg, {'CONFIG_PATH': path}, debug, halt=True)
+    r = configuration.init(debug, path)
+    return r
+
+
 def options(parser, help_menu=False):
     """
     Summary:
@@ -168,6 +197,7 @@ def options(parser, help_menu=False):
     parser.add_argument("-d", "--debug", dest='debug', action='store_true', required=False)
     parser.add_argument("-h", "--help", dest='help', action='store_true', required=False)
     parser.add_argument("-r", "--create-repos", dest='create', type=str, required=False)
+    parser.add_argument("-u", "--update", dest='update', type=str, default='all', required=False)
     parser.add_argument("-V", "--version", dest='version', action='store_true', required=False)
     return parser.parse_args()
 
@@ -215,7 +245,7 @@ def init_cli():
         if precheck():              # if prereqs set, run
             # execute keyset operation
             success = main(
-                        operation=args.operation,
+                        operation=args.update,
                         debug=args.debug
                         )
             if success:

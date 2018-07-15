@@ -59,7 +59,7 @@ else:
     version = __version__
 
     # config parameters
-    CONFIG_SCRIPT = 'keyconfig'         # console script to access config file
+    CONFIG_SCRIPT = 'gitconfig'         # console script to access config file
     config_dir = '.config'
     config_subdir = PACKAGE
     config_filename = 'config.json'
