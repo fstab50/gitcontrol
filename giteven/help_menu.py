@@ -21,7 +21,7 @@ synopsis_cmd = (
     )
 
 url_doc = Colors.URL + 'http://giteven.readthedocs.io' + Colors.RESET
-url_sc = Colors.URL + 'https://bitbucket.org/blakeca00/giteven' + Colors.RESET
+url_sc = Colors.URL + 'https://github.com/fstab50/giteven' + Colors.RESET
 
 menu_body = Colors.BOLD + """
   DESCRIPTION""" + Colors.RESET + """
@@ -33,18 +33,23 @@ menu_body = Colors.BOLD + """
   SYNOPSIS""" + Colors.RESET + """
                 """ + synopsis_cmd + """
 
-                    -p, --profile    <value>
-                    -o, --operation  <value>
-                   [-u, --user-name  <value> ]
-                   [-a, --auto     ]
+                    -u, --update <value>
+                    -c, --create <value>
+                   [-i, --index    <value> ]
+                   [-q, --quiet     ]
                    [-c, --configure]
                    [-V, --version  ]
                    [-d, --debug    ]
                    [-h, --help     ]
     """ + Colors.BOLD + """
   OPTIONS
-        -p, --profile""" + Colors.RESET + """ (string) : Profile name of an IAM user from the local
-            awscli config for which you want to rotate access keys
+        -i, --index""" + Colors.RESET + """ (string) : Discover local git repos and
+        exit. Does not update any repositories
+        -u, --update""" + Colors.RESET + """ (string) : Discover and update all local
+        git repositories
+        -c, --create <value>""" + Colors.RESET + """ (string) : Duplicates the repositories
+        and filesystem structure described in configuration file provided as a
+        parameter.
     """ + Colors.BOLD + """
         -o, --operation""" + Colors.RESET + """ (string) : Operation to be conducted on the access key
             of the IAM user noted by the PROFILE value. There are 2 operations:
@@ -57,22 +62,18 @@ menu_body = Colors.BOLD + """
 
                     Default: """ + Colors.BOLD + 'list' + Colors.RESET + """
     """ + Colors.BOLD + """
-        -u, --user-name""" + Colors.RESET + """ (string) : IAM username for which you want conduct key
-            operations using the permissions of profile username provided with
-            the --profile option
+        -q, --quiet""" + Colors.RESET + """ : Suppress output to stdout when """ + PACKAGE + """ triggered via a
+            scheduler such as cron or other automated means to update git repo-
+            sitories in the background
     """ + Colors.BOLD + """
-        -a, --auto""" + Colors.RESET + """ : Suppress output to stdout when """ + PACKAGE + """ triggered via a sched-
-            uler such as cron or by some other automated means to rotate keys
-            on a periodic schedule.
-    """ + Colors.BOLD + """
-        -c, --configure""" + Colors.RESET + """ :  Configure parameters to custom values. If the local
+        -c, --configure""" + Colors.RESET + """ :  Configure parameters to custom values.  If the local
             config file does not exist, option writes a new local configuration
             file to disk.  If file exists, overwrites existing config with up-
             dated values.
 
                Configure runtime options:   |   Display local config file:
                                             |
-                  $ """ + PKG_ACCENT + PACKAGE + PARAM_ACCENT + ' --configure' + Colors.RESET + """       |       $ """ + PKG_ACCENT + CONFIG_SCRIPT + PARAM_ACCENT + """
+                  $ """ + PKG_ACCENT + PACKAGE + PARAM_ACCENT + ' --configure' + Colors.RESET + """     |       $ """ + PKG_ACCENT + CONFIG_SCRIPT + PARAM_ACCENT + """
     """ + Colors.BOLD + """
         -d, --debug""" + Colors.RESET + """ : when True, do not write to the local awscli configuration
             file(s). Instead, write to a temporary location for testing the int-
