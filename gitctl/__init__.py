@@ -1,4 +1,4 @@
-from gitcontrol._version import __version__ as version
+from gitctl._version import __version__ as version
 
 
 __author__ = 'Blake Huber'

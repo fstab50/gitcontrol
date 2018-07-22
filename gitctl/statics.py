@@ -1,12 +1,12 @@
 """
 Summary:
-    gitcontrol Project-level Defaults and Settings
+    gitctl Project-level Defaults and Settings
 
     - **Local Default Settings**: Local defaults for your specific installation are derived from settings found in:
 
     .. code-block:: bash
 
-        ~/.config/gitcontrol/config.json
+        ~/.config/gitctl/config.json
 
 Module Attributes:
     - user_home (TYPE str):
@@ -16,19 +16,19 @@ Module Attributes:
     - config_path (TYPE str):
         default for stsaval config files, includes config_dir (~/.stsaval)
     - key_deprecation (TYPE str):
-        Deprecation logic that gitcontrol uses when 2 keys exist for a user.
+        Deprecation logic that gitctl uses when 2 keys exist for a user.
 
         2 values possible:
 
-            - 'AGE':  gitcontrol deprecates based on age, replacing the oldest key
-            - 'AWSCLI':  gitcontrol replaces keys currently in the local awscli config
+            - 'AGE':  gitctl deprecates based on age, replacing the oldest key
+            - 'AWSCLI':  gitctl replaces keys currently in the local awscli config
 """
 
 import os
 import inspect
 import logging
-from gitcontrol.script_utils import read_local_config, get_os, os_parityPath
-from gitcontrol import __version__
+from gitctl.script_utils import read_local_config, get_os, os_parityPath
+from gitctl import __version__
 
 logger = logging.getLogger(__version__)
 logger.setLevel(logging.INFO)
@@ -53,7 +53,7 @@ else:
     # section with appropriate pathnames
 
     # project
-    PACKAGE = 'gitcontrol'
+    PACKAGE = 'gitctl'
     LICENSE = 'GPL v3'
     LICENSE_DESC = 'General Public License v3'
     version = __version__
@@ -73,7 +73,7 @@ else:
     # logging parameters
     enable_logging = False
     log_mode = 'FILE'
-    log_filename = 'gitcontrol.log'
+    log_filename = 'gitctl.log'
     log_dir = user_home + '/' + 'logs'
     log_path = log_dir + '/' + log_filename
 

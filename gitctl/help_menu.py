@@ -6,8 +6,8 @@ Help Menu
 
 """
 
-from gitcontrol.statics import PACKAGE, CONFIG_SCRIPT
-from gitcontrol.colors import Colors
+from gitctl.statics import PACKAGE, CONFIG_SCRIPT
+from gitctl.colors import Colors
 
 
 PKG_ACCENT = Colors.ORANGE
@@ -20,8 +20,8 @@ synopsis_cmd = (
     PARAM_ACCENT + '--operation ' + Colors.RESET + '[OPERATION]'
     )
 
-url_doc = Colors.URL + 'http://gitcontrol.readthedocs.io' + Colors.RESET
-url_sc = Colors.URL + 'https://github.com/fstab50/gitcontrol' + Colors.RESET
+url_doc = Colors.URL + 'http://gitctl.readthedocs.io' + Colors.RESET
+url_sc = Colors.URL + 'https://github.com/fstab50/gitctl' + Colors.RESET
 
 menu_body = Colors.BOLD + """
   DESCRIPTION""" + Colors.RESET + """

@@ -1,5 +1,5 @@
 ============================================
-gitcontrol | Automated AWS Access Key Rotation
+gitctl | Automated AWS Access Key Rotation
 ============================================
 
 .. toctree::

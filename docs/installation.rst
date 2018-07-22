@@ -100,7 +100,7 @@ Redhat Enterprise Linux v7.X / Centos 7.X
 
 .. code:: bash
 
-        $ sudo -H pip3 install gitcontrol
+        $ sudo -H pip3 install gitctl
 
 -  :ref:`verify`
 
@@ -142,7 +142,7 @@ Ubuntu v16.04+, Ubuntu Variants
 
 .. code:: bash
 
-        $ sudo -H pip3 install gitcontrol
+        $ sudo -H pip3 install gitctl
 
 -  :ref:`verify`
 
@@ -165,11 +165,11 @@ Amazon Linux v2016+
 
         $ sudo yum install python35-pip / python34-pip    # latest your distribution supports
 
--  Install gitcontrol:
+-  Install gitctl:
 
 .. code:: bash
 
-        $ sudo -H pip3 install gitcontrol
+        $ sudo -H pip3 install gitctl
 
 -  :ref:`verify`
 
@@ -184,11 +184,11 @@ Microsoft Windows 7
 
 -  Install Python3 by downloading the latest `Python3 version for Windows <https://www.python.org/downloads/windows/>`__
 
-- Install gitcontrol:
+- Install gitctl:
 
 .. code:: powershell
 
-    $ pip3 install gitcontrol
+    $ pip3 install gitctl
 
 -  :ref:`verify`
 
@@ -203,11 +203,11 @@ Microsoft Windows 10
 
 -  Install Python3 by downloading the latest `Python3 version for Windows <https://www.python.org/downloads/windows/>`__
 
-- Install gitcontrol:
+- Install gitctl:
 
 .. code:: powershell
 
-    $ pip3 install gitcontrol
+    $ pip3 install gitctl
 
 -  :ref:`verify`
 
@@ -222,13 +222,13 @@ Build Source Code
 
 To install locally from source code, do the following:
 
-Check out the ``gitcontrol`` code repository:
+Check out the ``gitctl`` code repository:
 
 .. code:: bash
 
-    $ git clone https://blakeca00@bitbucket.org/blakeca00/gitcontrol.git
+    $ git clone https://blakeca00@bitbucket.org/blakeca00/gitctl.git
 
-    $ cd gitcontrol/
+    $ cd gitctl/
 
 Display the list of make targets:
 
@@ -259,10 +259,10 @@ Verify Your Installation
 
 .. code:: bash
 
-    $ gitcontrol --version
+    $ gitctl --version
 
 
-.. figure:: ../assets/gitcontrol-version.png
+.. figure:: ../assets/gitctl-version.png
 
 Back to :ref:`install` Table of Contents
 

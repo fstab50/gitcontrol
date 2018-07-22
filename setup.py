@@ -1,6 +1,6 @@
 """
 
-gitcontrol :  Copyright 2018-2019, Blake Huber
+gitctl :  Copyright 2018-2019, Blake Huber
 
 This program is free software: you can redistribute it and/or
 modify it under the terms of the MIT License as published by
@@ -25,7 +25,7 @@ from setuptools.command.develop import develop
 from setuptools.command.install import install
 from subprocess import check_call
 from codecs import open
-import gitcontrol
+import gitctl
 
 
 requires = [
@@ -60,12 +60,12 @@ class PostInstall(install):
 
 setup(
     name='gitcontrol',
-    version=gitcontrol.__version__,
+    version=gitctl.__version__,
     description='Command line utility for managing local git repositories',
     long_description=read('DESCRIPTION.rst'),
-    url='https://github.com/fstab50/gitcontrol',
-    author=gitcontrol.__author__,
-    author_email=gitcontrol.__email__,
+    url='https://github.com/fstab50/gitctl',
+    author=gitctl.__author__,
+    author_email=gitctl.__email__,
     license='MIT',
     classifiers=[
         'Topic :: System :: Shells',
@@ -85,8 +85,8 @@ setup(
     python_requires='>=3.4, <4',
     entry_points={
         'console_scripts': [
-            'gitcontrol=gitcontrol.cli:init_cli',
-            'gitctl=gitcontrol.cli:init_cli'
+            'gitctl=gitctl.cli:init_cli',
+            'gitcontrol=gitctl.cli:init_cli'
         ]
     },
     zip_safe=False

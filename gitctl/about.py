@@ -11,15 +11,15 @@ Returns:
 
 import sys
 import datetime
-from gitcontrol.statics import PACKAGE, LICENSE
-from gitcontrol.colors import Colors
-from gitcontrol import __version__
+from gitctl.statics import PACKAGE, LICENSE
+from gitctl.colors import Colors
+from gitctl import __version__
 
 
 # url formatting
-url_doc = Colors.URL + 'https://gitcontrol.readthedocs.io' + Colors.RESET
-url_sc = Colors.URL + 'https://github.com/fstab50/gitcontrol' + Colors.RESET
-url_lic = Colors.URL + 'http://gitcontrol.readthedocs.io/en/latest/license.html' + Colors.RESET
+url_doc = Colors.URL + 'https://gitctl.readthedocs.io' + Colors.RESET
+url_sc = Colors.URL + 'https://github.com/fstab50/gitctl' + Colors.RESET
+url_lic = Colors.URL + 'http://gitctl.readthedocs.io/en/latest/license.html' + Colors.RESET
 
 # copyright range thru current calendar year
 current_year = datetime.datetime.today().year
