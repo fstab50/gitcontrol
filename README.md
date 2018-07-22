@@ -1,4 +1,4 @@
-# giteven | README
+# gitcontrol | README
 
 * * *
 
@@ -8,7 +8,7 @@ Have dozens of local repositories to manage?  If you are like me and your averag
 
 Don't get mad - Giteven
 
-[giteven](https://github.com/fstab50/giteven) is a CLI utility for maintaining volumes of git repositories on local machine.
+[gitcontrol](https://github.com/fstab50/gitcontrol) is a CLI utility for maintaining volumes of git repositories on local machine.
 
 
 ## Dependencies

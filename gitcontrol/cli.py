@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Summary:
-    Project giteven
-        - giteven manages and updates all the repositories on your local maachine
+    Project gitcontrol
+        - gitcontrol manages and updates all the repositories on your local maachine
         - reproduce
 
 Module Args:
@@ -15,15 +15,15 @@ import inspect
 import argparse
 import platform
 import subprocess
-from giteven.statics import PACKAGE, CONFIG_SCRIPT, local_config
-from giteven.help_menu import menu_body
-from giteven.script_utils import export_json_object, import_file_object, read_local_config
-from giteven.script_utils import stdout_message, bool_assignment, debug_mode, os_parityPath
-from giteven.colors import Colors
-from giteven import about, logd, __version__
+from gitcontrol.statics import PACKAGE, CONFIG_SCRIPT, local_config
+from gitcontrol.help_menu import menu_body
+from gitcontrol.script_utils import export_json_object, import_file_object, read_local_config
+from gitcontrol.script_utils import stdout_message, bool_assignment, debug_mode, os_parityPath
+from gitcontrol.colors import Colors
+from gitcontrol import about, logd, __version__
 
 try:
-    from giteven.oscodes_unix import exit_codes
+    from gitcontrol.oscodes_unix import exit_codes
     os_type = 'Linux'
     user_home = os.getenv('HOME')
     splitchar = '/'                             # character for splitting paths (linux)
@@ -31,7 +31,7 @@ try:
     TEXT = Colors.LT2GRAY
     TITLE = Colors.WHITE + Colors.BOLD
 except Exception:
-    from giteven.oscodes_win import exit_codes    # non-specific os-safe codes
+    from gitcontrol.oscodes_win import exit_codes    # non-specific os-safe codes
     os_type = 'Windows'
     user_home = os.getenv('username')
     splitchar = '\\'                            # character for splitting paths (windows)

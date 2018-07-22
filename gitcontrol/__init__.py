@@ -1,4 +1,4 @@
-from giteven._version import __version__ as version
+from gitcontrol._version import __version__ as version
 
 
 __author__ = 'Blake Huber'

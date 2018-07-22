@@ -6,8 +6,8 @@ Help Menu
 
 """
 
-from giteven.statics import PACKAGE, CONFIG_SCRIPT
-from giteven.colors import Colors
+from gitcontrol.statics import PACKAGE, CONFIG_SCRIPT
+from gitcontrol.colors import Colors
 
 
 PKG_ACCENT = Colors.ORANGE
@@ -20,8 +20,8 @@ synopsis_cmd = (
     PARAM_ACCENT + '--operation ' + Colors.RESET + '[OPERATION]'
     )
 
-url_doc = Colors.URL + 'http://giteven.readthedocs.io' + Colors.RESET
-url_sc = Colors.URL + 'https://github.com/fstab50/giteven' + Colors.RESET
+url_doc = Colors.URL + 'http://gitcontrol.readthedocs.io' + Colors.RESET
+url_sc = Colors.URL + 'https://github.com/fstab50/gitcontrol' + Colors.RESET
 
 menu_body = Colors.BOLD + """
   DESCRIPTION""" + Colors.RESET + """

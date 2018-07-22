@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# giteven documentation build configuration file, created by
+# gitcontrol documentation build configuration file, created by
 # sphinx-quickstart on Wed Dec 27 08:20:05 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -21,7 +21,7 @@ import os
 import sys
 import sphinx_rtd_theme
 sys.path.insert(0, os.path.abspath('..'))
-from giteven import __version__
+from gitcontrol import __version__
 
 # -- General configuration ------------------------------------------------
 
@@ -55,7 +55,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'giteven'
+project = 'gitcontrol'
 copyright = '2017-2018, Blake Huber'
 author = 'Blake Huber'
 
@@ -123,7 +123,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'gitevendoc'
+htmlhelp_basename = 'gitcontroldoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -150,7 +150,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'giteven.tex', 'giteven Documentation',
+    (master_doc, 'gitcontrol.tex', 'gitcontrol Documentation',
      'Blake Huber', 'manual'),
 ]
 
@@ -160,7 +160,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'giteven', 'giteven Documentation',
+    (master_doc, 'gitcontrol', 'gitcontrol Documentation',
      [author], 1)
 ]
 
@@ -171,8 +171,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'giteven', 'giteven Documentation',
-     author, 'giteven', 'One line description of project.',
+    (master_doc, 'gitcontrol', 'gitcontrol Documentation',
+     author, 'gitcontrol', 'One line description of project.',
      'Miscellaneous'),
 ]
 

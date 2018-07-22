@@ -1,6 +1,6 @@
 """
 
-giteven :  Copyright 2018-2019, Blake Huber
+gitcontrol :  Copyright 2018-2019, Blake Huber
 
 This program is free software: you can redistribute it and/or
 modify it under the terms of the MIT License as published by
@@ -25,7 +25,7 @@ from setuptools.command.develop import develop
 from setuptools.command.install import install
 from subprocess import check_call
 from codecs import open
-import giteven
+import gitcontrol
 
 
 requires = [
@@ -59,13 +59,13 @@ class PostInstall(install):
 
 
 setup(
-    name='giteven',
-    version=giteven.__version__,
+    name='gitcontrol',
+    version=gitcontrol.__version__,
     description='Command line utility for managing local git repositories',
     long_description=read('DESCRIPTION.rst'),
-    url='https://github.com/fstab50/giteven',
-    author=giteven.__author__,
-    author_email=giteven.__email__,
+    url='https://github.com/fstab50/gitcontrol',
+    author=gitcontrol.__author__,
+    author_email=gitcontrol.__email__,
     license='MIT',
     classifiers=[
         'Topic :: System :: Shells',
@@ -85,8 +85,8 @@ setup(
     python_requires='>=3.4, <4',
     entry_points={
         'console_scripts': [
-            'giteven=giteven.cli:init_cli',
-            'gitconfig=giteven.cli:display_config'
+            'gitcontrol=gitcontrol.cli:init_cli',
+            'gitconfig=gitcontrol.cli:display_config'
         ]
     },
     zip_safe=False

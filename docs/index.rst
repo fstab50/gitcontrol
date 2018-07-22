@@ -1,5 +1,5 @@
 ============================================
-giteven | Automated AWS Access Key Rotation
+gitcontrol | Automated AWS Access Key Rotation
 ============================================
 
 .. toctree::

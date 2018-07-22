@@ -24,14 +24,14 @@ import re
 import logging
 import inspect
 from pygments import highlight, lexers, formatters
-from giteven.colors import Colors
-from giteven import __version__
+from gitcontrol.colors import Colors
+from gitcontrol import __version__
 
 # globals
 MODULE_VERSION = '1.14'
 
 try:
-    from giteven import logd
+    from gitcontrol import logd
     logger = logd.getLogger(__version__)
 except Exception:
     logger = logging.getLogger(__version__)
