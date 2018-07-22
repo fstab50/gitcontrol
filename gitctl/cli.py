@@ -63,7 +63,7 @@ def build_index(root):
                     {
                         "location": fullpath-including-repository,
                         "path":  path-to-repository (not incl repo),
-                        "source": repository git remote string
+                        "repository": repository git remote string
                     }
                 ]
 
@@ -73,9 +73,9 @@ def build_index(root):
         if path:
             index.append(
                 {
-                    "location": path,
-                    "path": '/'.join(path.split('/')[:-1]),
-                    "source": source_url(path)
+                    "location": '/'.join(path.split('/')[:-1]),
+                    "fullpath": path,
+                    "repository": source_url(path)
                 }
             )
     return index
