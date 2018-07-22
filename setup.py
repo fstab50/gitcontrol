@@ -86,7 +86,7 @@ setup(
     entry_points={
         'console_scripts': [
             'gitcontrol=gitcontrol.cli:init_cli',
-            'gitconfig=gitcontrol.cli:display_config'
+            'gitctl=gitcontrol.cli:init_cli'
         ]
     },
     zip_safe=False
