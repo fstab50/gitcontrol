@@ -222,6 +222,16 @@ def package_version():
     sys.exit(exit_codes['EX_OK']['Code'])
 
 
+def precheck():
+    """
+    Pre-execution Dependency Check
+    """
+    # check if git root dir set; otherwise use home
+    # check logging enabled
+    # check if config file
+    return True
+
+
 def init_cli():
     # parser = argparse.ArgumentParser(add_help=False, usage=help_menu())
     parser = argparse.ArgumentParser(add_help=False)
@@ -248,15 +258,13 @@ def init_cli():
         r = option_configure(args.debug, local_config['PROJECT']['CONFIG_PATH'])
         return r
 
-    elif args.index:
-        if write_index(display=True):
-            sys.exit(exit_codes['EX_OK']['Code'])
-        #with open(output_path, 'w') as f1:
-        #    f1.write(json.dumps(index_list, indent=4))
     else:
-        if precheck():              # if prereqs set, run
+        if precheck() and args.index:              # if prereqs set, run
+            sys.exit(write_index(display=True))
+
+        elif precheck() and args.update:
             # execute keyset operation
-            success = main(
+            success = update(
                         operation=args.update,
                         debug_mode=args.debug
                         )

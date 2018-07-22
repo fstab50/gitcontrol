@@ -1,3 +1,4 @@
 pandoc
 pkginfo
 Pygments
+twine
