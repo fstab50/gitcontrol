@@ -24,14 +24,14 @@ import re
 import logging
 import inspect
 from pygments import highlight, lexers, formatters
-from gitctl.colors import Colors
-from gitctl import __version__
+from gitctrl.colors import Colors
+from gitctrl import __version__
 
 # globals
 MODULE_VERSION = '1.14'
 
 try:
-    from gitctl import logd
+    from gitctrl import logd
     logger = logd.getLogger(__version__)
 except Exception:
     logger = logging.getLogger(__version__)

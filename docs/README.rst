@@ -2,10 +2,10 @@
 Purpose
 --------
 
-``gitctl`` automates IAM user access key rotation from the cli by allowing ad hoc or
+``gitctrl`` automates IAM user access key rotation from the cli by allowing ad hoc or
 scheduled renewal of your access key credentials via the Amazon API's.
 
-**gitctl**:
+**gitctrl**:
 
     * is a safe and reliable way to rotate (renew) access keys to Amazon Web Services as frequently as you wish, with minimal effort and risk.
     * requires only the profile name of your IAM user in your local `awscli configuration <https://docs.aws.amazon.com/cli/latest/reference/>`__
@@ -39,10 +39,10 @@ Before starting, please take a moment to read the following:
 
 **Other Resources**:
 
--  Source Code: `gitctl bitbucket repository <https://bitbucket.org/blakeca00/gitctl>`__
+-  Source Code: `gitctrl bitbucket repository <https://bitbucket.org/blakeca00/gitctrl>`__
 -  Amazon `Secure Token Service (STS) <https://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html>`__ Documentation
 -  Amazon Web Services' `Command Line Interface (awscli) <https://docs.aws.amazon.com/cli/latest/reference/>`__ Documentation
--  **gitctl** `Open Source License Agreement <./license.html>`__
+-  **gitctrl** `Open Source License Agreement <./license.html>`__
 
 **Current Release**:
 
@@ -57,12 +57,12 @@ Documentation
 
 **Online**:
 
-- Complete html documentation available at `http://gitctl.readthedocs.io <http://gitctl.readthedocs.io>`__.
+- Complete html documentation available at `http://gitctrl.readthedocs.io <http://gitctrl.readthedocs.io>`__.
 
 **Download**:  Available via download in the formats below
 
-- `pdf format <https://readthedocs.org/projects/gitctl/downloads/pdf/latest/>`__
-- `Amazon Kindle <https://readthedocs.org/projects/gitctl/downloads/epub/latest/>`__ (epub) format
+- `pdf format <https://readthedocs.org/projects/gitctrl/downloads/pdf/latest/>`__
+- `Amazon Kindle <https://readthedocs.org/projects/gitctrl/downloads/epub/latest/>`__ (epub) format
 
 --------------------
 
@@ -74,7 +74,7 @@ Display help menu to see available options and functionality.
 .. code:: bash
 
 
-        $ gitctl -h
+        $ gitctrl -h
 
 .. figure:: ../assets/help-menu.png
    :alt:

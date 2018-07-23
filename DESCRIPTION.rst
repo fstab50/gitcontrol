@@ -1,8 +1,8 @@
 
-**gitctl** | Utility for managing local git repositories
+**gitctrl** | Utility for managing local git repositories
 -----------------------------------------------------------
 
-``gitctl``: Performs the following functions on your local machine:
+``gitctrl``: Performs the following functions on your local machine:
 
 * updates all repositories
 * updates specific branches, if present in the repo

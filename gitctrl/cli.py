@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Summary:
-    Project gitctl
-        - gitctl manages and updates all the repositories on your local maachine
+    Project gitctrl
+        - gitctrl manages and updates all the repositories on your local maachine
         - reproduce
 
 Module Args:
@@ -15,15 +15,15 @@ import inspect
 import argparse
 import platform
 import subprocess
-from gitctl.statics import PACKAGE, CONFIG_SCRIPT, local_config
-from gitctl.help_menu import menu_body
-from gitctl.script_utils import export_json_object, import_file_object, read_local_config
-from gitctl.script_utils import stdout_message, bool_assignment, debug_mode, os_parityPath
-from gitctl.colors import Colors
-from gitctl import about, logd, __version__
+from gitctrl.statics import PACKAGE, CONFIG_SCRIPT, local_config
+from gitctrl.help_menu import menu_body
+from gitctrl.script_utils import export_json_object, import_file_object, read_local_config
+from gitctrl.script_utils import stdout_message, bool_assignment, debug_mode, os_parityPath
+from gitctrl.colors import Colors
+from gitctrl import about, logd, __version__
 
 try:
-    from gitctl.oscodes_unix import exit_codes
+    from gitctrl.oscodes_unix import exit_codes
     os_type = 'Linux'
     user_home = os.getenv('HOME')
     splitchar = '/'                             # character for splitting paths (linux)
@@ -31,7 +31,7 @@ try:
     TEXT = Colors.LT2GRAY
     TITLE = Colors.WHITE + Colors.BOLD
 except Exception:
-    from gitctl.oscodes_win import exit_codes    # non-specific os-safe codes
+    from gitctrl.oscodes_win import exit_codes    # non-specific os-safe codes
     os_type = 'Windows'
     user_home = os.getenv('username')
     splitchar = '\\'                            # character for splitting paths (windows)
