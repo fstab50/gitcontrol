@@ -232,6 +232,23 @@ def precheck():
     return True
 
 
+def recent():
+
+
+def update_repos():
+    """
+    Update git repositories from local fs discovery
+    Return:
+        Success | Failure, TYPE: bool
+    """
+    if os.path.exists():
+        if not recent():
+    if write_index():
+        update_repos
+    # check date of local file; if exists
+    # if recent file, skip index; else run index
+
+
 def init_cli():
     # parser = argparse.ArgumentParser(add_help=False, usage=help_menu())
     parser = argparse.ArgumentParser(add_help=False)
@@ -264,7 +281,7 @@ def init_cli():
 
         elif precheck() and args.update:
             # execute keyset operation
-            success = update(
+            success = update_repos(
                         operation=args.update,
                         debug_mode=args.debug
                         )
