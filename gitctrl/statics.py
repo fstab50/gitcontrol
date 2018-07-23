@@ -2,12 +2,6 @@
 Summary:
     gitctrl Project-level Defaults and Settings
 
-    - **Local Default Settings**: Local defaults for your specific installation are derived from settings found in:
-
-    .. code-block:: bash
-
-        ~/.config/gitctrl/config.json
-
 Module Attributes:
     - user_home (TYPE str):
         $HOME environment variable, present for most Unix and Unix-like POSIX systems
@@ -17,11 +11,6 @@ Module Attributes:
         default for stsaval config files, includes config_dir (~/.stsaval)
     - key_deprecation (TYPE str):
         Deprecation logic that gitctrl uses when 2 keys exist for a user.
-
-        2 values possible:
-
-            - 'AGE':  gitctrl deprecates based on age, replacing the oldest key
-            - 'AWSCLI':  gitctrl replaces keys currently in the local awscli config
 """
 
 import os
@@ -62,13 +51,8 @@ else:
     CONFIG_SCRIPT = 'gitconfig'         # console script to access config file
     config_dir = '.config'
     config_subdir = PACKAGE
-    config_filename = 'config.json'
+    config_filename = 'gitctrl.json'
     config_path = user_home + '/' + config_dir + '/' + config_subdir + '/' + config_filename
-
-    # access key parameters
-    keyage_min = 1      # days
-    keyage_max = 30     # days
-    key_deprecation = 'AGE'       # 'AWSCLI' || 'AGE'
 
     # logging parameters
     enable_logging = False
@@ -77,14 +61,10 @@ else:
     log_dir = user_home + '/' + 'logs'
     log_path = log_dir + '/' + log_filename
 
-    # key backup parameters
-    backup_enable = False
-    backup_location = user_home + '/' + 'Backup' + '/' + 'keysets'
 
     if OS == 'Windows':
         config_path = os_parityPath(config_path)
         log_path = os_parityPath(log_path)
-        backup_location = os_parityPath(backup_location)
 
     seed_config = {
         "PROJECT": {
@@ -96,25 +76,12 @@ else:
             "CONFIG_DIR": config_dir,
             "CONFIG_SUBDIR": config_subdir,
             "CONFIG_PATH": config_path
-        },
-        "TEMP_CREDENTIALS": {
-            "PROFILE_NAMES": []
-        },
+        }
         "LOGGING": {
             "ENABLE_LOGGING": enable_logging,
             "LOG_FILENAME": log_filename,
             "LOG_PATH": log_path,
-            "LOG_MODE": log_mode,
-            "SYSLOG_FILE": False
-        },
-        "KEY_METADATA": {
-            "KEYAGE_MAX_DAYS": keyage_max,
-            "KEYAGE_MIN_DAYS": keyage_min,
-            "KEY_DEPRECATION": key_deprecation
-        },
-        "KEY_BACKUP": {
-            "BACKUP_ENABLE": backup_enable,
-            "BACKUP_LOCATION": backup_location
+            "LOG_MODE": log_mode
         }
     }
 
