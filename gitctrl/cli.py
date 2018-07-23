@@ -43,6 +43,7 @@ except Exception:
 # globals
 logger = logd.getLogger(__version__)
 container = []
+BRANCHES = ('develop', 'master')
 
 
 def build_index(root):
@@ -273,8 +274,15 @@ def update_repos(root_node, fix, debug):
         Success | Failure, TYPE: bool
     """
     for repo in build_index(root_node):
+        name = repo['location'].split('/')[-1]
         os.chdir(repo['location'])
-
+        stdout_message(f'Updating repository located at {name}')
+        stdout_message(subprocess.getoutput('git pull'))
+        for branch in BRANCHES:
+            stdout_message(f'Updating repository {name} branch {branch}')
+            stdout_message(subprocess.getoutput('git checkout %s' % branch))
+            stdout_message(subprocess.getoutput('git pull'))
+    return True
 
     # check date of local file; if exists
     # if recent file, skip index; else run index
