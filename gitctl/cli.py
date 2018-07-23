@@ -70,14 +70,13 @@ def build_index(root):
     """
     index = []
     for path in locate_repositories(root):
-        if path:
-            index.append(
-                {
-                    "location": '/'.join(path.split('/')[:-1]),
-                    "fullpath": path,
-                    "repository": source_url(path)
-                }
-            )
+        index.append(
+            {
+                "location": '/'.join(path.split('/')[:-1]),
+                "fullpath": path,
+                "repository": source_url(path)
+            }
+        )
     return index
 
 
@@ -89,10 +88,6 @@ def write_index(display=False):
     if display:
         export_json_object(dict_obj=index_list)
         summary(index_list)
-        return export_json_object(
-                    dict_obj=index_list,
-                    filename=output_path
-                )
     return export_json_object(dict_obj=index_list, filename=output_path)
 
 
@@ -165,6 +160,8 @@ def summary(repository_list):
 
 def main(operation, debug_mode):
     """ Main """
+    for repo_data in build_index(user_home):
+        os.chdir(repo_data['location'])
     return True
 
 
