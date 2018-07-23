@@ -61,7 +61,6 @@ else:
     log_dir = user_home + '/' + 'logs'
     log_path = log_dir + '/' + log_filename
 
-
     if OS == 'Windows':
         config_path = os_parityPath(config_path)
         log_path = os_parityPath(log_path)
@@ -76,7 +75,7 @@ else:
             "CONFIG_DIR": config_dir,
             "CONFIG_SUBDIR": config_subdir,
             "CONFIG_PATH": config_path
-        }
+        },
         "LOGGING": {
             "ENABLE_LOGGING": enable_logging,
             "LOG_FILENAME": log_filename,

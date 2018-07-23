@@ -91,6 +91,30 @@ def write_index(display=False):
     return export_json_object(dict_obj=index_list, filename=output_path)
 
 
+def filter_args(kwarg_dict, *args):
+    """
+    Summary:
+        arg, kwarg validity test
+
+    Args:
+        kwarg_dict: kwargs passed in to calling method or func
+        args:  valid keywords for the caller
+
+    Returns:
+        True if kwargs are valid; else raise exception
+    """
+    # unpack if iterable passed in args - TBD (here)
+    if kwarg_dict is not None:
+        keys = [key for key in kwarg_dict]
+        unknown_arg = list(filter(lambda x: x not in args, keys))
+        if unknown_arg:
+            raise KeyError(
+                '%s: unknown parameter(s) provided [%s]' %
+                (inspect.stack()[0][3], str(unknown_arg))
+            )
+    return True
+
+
 def help_menu():
     """
     Displays help menu contents
@@ -158,12 +182,19 @@ def summary(repository_list):
     return True
 
 
-def main(operation, debug_mode):
+def main(**kwargs):
     """ Main """
-    for repo_data in build_index(user_home):
-        os.chdir(repo_data['location'])
-        if not update_repo():
-            print('log exception PLACEHOLDER')
+    keywords = ('root', 'debug', 'update', 'remediate')
+    if filter_args(kwargs, *keywords):
+        root = kwargs.get('root', user_home)
+        update = kwargs.get('update', False)
+        remediate = kwargs.get('remediate', False)
+        debug = kwargs.get('debug', False)
+    else:
+        return False
+
+    if update:
+        return update_repos(root, remediate, debug)
     return True
 
 
@@ -231,22 +262,20 @@ def precheck():
     return True
 
 
-def recent():
+def recent(file_path):
     pass
 
 
-def update_repo():
+def update_repos(root_node, fix, debug):
     """
     Update git repositories from local fs discovery
     Return:
         Success | Failure, TYPE: bool
-
-    if os.path.exists():
-        if not recent():
-    if write_index():
-        #update_repos
     """
-    pass
+    for repo in build_index(root_node):
+        os.chdir(repo['location'])
+
+
     # check date of local file; if exists
     # if recent file, skip index; else run index
 
@@ -281,13 +310,9 @@ def init_cli():
         if precheck() and args.index:              # if prereqs set, run
             sys.exit(write_index(display=True))
 
-        elif precheck() and args.update:
+        elif precheck():
             # execute keyset operation
-            success = update_repos(
-                        operation=args.update,
-                        debug_mode=args.debug
-                        )
-            if success:
+            if main(**args):
                 logger.info('repository operation complete')
                 sys.exit(exit_codes['EX_OK']['Code'])
         else:
