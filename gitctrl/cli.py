@@ -72,8 +72,8 @@ def build_index(root):
     for path in locate_repositories(root):
         index.append(
             {
-                "location": '/'.join(path.split('/')[:-1]),
-                "fullpath": path,
+                "location": path,
+                "path": '/'.join(path.split('/')[:-1]),
                 "repository": source_url(path)
             }
         )
