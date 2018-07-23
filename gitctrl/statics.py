@@ -80,7 +80,8 @@ else:
             "ENABLE_LOGGING": enable_logging,
             "LOG_FILENAME": log_filename,
             "LOG_PATH": log_path,
-            "LOG_MODE": log_mode
+            "LOG_MODE": log_mode,
+            "SYSLOG_FILE": False
         }
     }
 
