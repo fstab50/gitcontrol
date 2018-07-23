@@ -162,6 +162,8 @@ def main(operation, debug_mode):
     """ Main """
     for repo_data in build_index(user_home):
         os.chdir(repo_data['location'])
+        if not update_repo():
+            print('log exception PLACEHOLDER')
     return True
 
 
@@ -230,18 +232,21 @@ def precheck():
 
 
 def recent():
+    pass
 
 
-def update_repos():
+def update_repo():
     """
     Update git repositories from local fs discovery
     Return:
         Success | Failure, TYPE: bool
-    """
+
     if os.path.exists():
         if not recent():
     if write_index():
-        update_repos
+        #update_repos
+    """
+    pass
     # check date of local file; if exists
     # if recent file, skip index; else run index
 
