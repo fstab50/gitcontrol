@@ -1,0 +1,4 @@
+pandoc
+pkginfo
+Pygments
+twine

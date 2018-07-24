@@ -1,6 +1,6 @@
 """
 
-gitIn :  Copyright 2018-2019, Blake Huber
+gitctrl :  Copyright 2018-2019, Blake Huber
 
 This program is free software: you can redistribute it and/or
 modify it under the terms of the MIT License as published by
@@ -25,17 +25,11 @@ from setuptools.command.develop import develop
 from setuptools.command.install import install
 from subprocess import check_call
 from codecs import open
-import gitin
+import gitctrl
 
 
 requires = [
-    'awscli',
-    'botocore',
-    'docutils',
-    'jmespath',
-    'Pygments',
-    's3transfer',
-    'six'
+    'Pygments'
 ]
 
 
@@ -65,13 +59,13 @@ class PostInstall(install):
 
 
 setup(
-    name='gitin',
-    version=gitin.__version__,
-    description='Bash Tools for Amazon Web Services',
+    name='gitctrl',
+    version=gitctrl.__version__,
+    description='Command line utility for managing local git repositories',
     long_description=read('DESCRIPTION.rst'),
-    url='https://github.com/fstab50/gitin',
-    author=gitin.__author__,
-    author_email=gitin.__email__,
+    url='https://github.com/fstab50/gitctrl',
+    author=gitctrl.__author__,
+    author_email=gitctrl.__email__,
     license='MIT',
     classifiers=[
         'Topic :: System :: Shells',
@@ -83,15 +77,15 @@ setup(
         'Programming Language :: Python :: 3.6',
         'License :: OSI Approved :: MIT License',
         'Operating System :: POSIX :: Linux',
+        'Operating System :: Microsoft :: Windows'
     ],
-    keywords='bash Amazon Web Services AWS tools s3 ec2 lambda',
+    keywords='git code versioning cli utilities',
     packages=find_packages(exclude=['docs', 'scripts', 'assets']),
     install_requires=requires,
     python_requires='>=3.4, <4',
     entry_points={
         'console_scripts': [
-            'gitin=gitin.cli:init_cli',
-            'keyconfig=gitin.cli:option_configure'
+            'gitctrl=gitctrl.cli:init_cli'
         ]
     },
     zip_safe=False

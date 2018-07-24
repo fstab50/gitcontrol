@@ -1,14 +1,14 @@
-# giteven | README
+# gitctrl | README
 
 * * *
 
 ## Purpose
 
-Have dozens of local repositories to manage?  If you are like me and your average dev machine has 100's git repos in various states, staying up to date can be maddening.
+Have dozens of local repositories to manage?  If you are like me and your average dev machine has over a 100 git repositories in various states, managing the sprawl can be maddening.
 
-Don't get mad - Giteven
+Don't get mad - get control.
 
-[giteven](https://github.com/fstab50/giteven) is a CLI utility for maintaining volumes of git repositories on local machine.
+[gitctrl](https://github.com/fstab50/gitctrl) is a CLI utility for maintaining volumes of git repositories on local machine.
 
 
 ## Dependencies
@@ -19,6 +19,3 @@ Don't get mad - Giteven
 
 
 ## Details
-
-
-
