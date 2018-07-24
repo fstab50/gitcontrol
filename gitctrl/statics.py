@@ -51,8 +51,11 @@ else:
     CONFIG_SCRIPT = 'gitconfig'         # console script to access config file
     config_dir = '.config'
     config_subdir = PACKAGE
-    config_filename = 'gitctrl.json'
+    config_filename = 'config.json'
     config_path = user_home + '/' + config_dir + '/' + config_subdir + '/' + config_filename
+
+    # exception file
+    ex_filename = 'gitctrl.exceptions'
 
     # logging parameters
     enable_logging = False
@@ -74,7 +77,8 @@ else:
             "CONFIG_FILENAME": config_filename,
             "CONFIG_DIR": config_dir,
             "CONFIG_SUBDIR": config_subdir,
-            "CONFIG_PATH": config_path
+            "CONFIG_PATH": config_path,
+            "EXCEPTION_FILENAME": ex_filename
         },
         "LOGGING": {
             "ENABLE_LOGGING": enable_logging,
