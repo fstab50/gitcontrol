@@ -269,7 +269,12 @@ def recent(file_path):
 
 def update_repos(root_node, fix, debug):
     """
-    Update git repositories from local fs discovery
+    Summary:
+        Update git repositories from local fs discovery
+    Args:
+        :root_node (str):
+        :fix (bool): if True, take action to update failed git pull; False do nothing
+        :debug (bool): if True, verbose output
     Return:
         Success | Failure, TYPE: bool
     """
