@@ -2,6 +2,14 @@
 
 * * *
 
+## Summary
+
+**gitsane** Repository Manager
+
+Version: 0.1.2
+
+* * *
+
 ## Purpose
 
 Have dozens of local repositories to manage?  If you are like me and your average dev machine has over a 100 git repositories in various states, managing the sprawl can be maddening.
