@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-PACKAGE='gitctrl'
+PACKAGE='gitsane'
 VERSION="$1"
 PIP_CALL=$(which pip3)
 GIT=$(which git)
