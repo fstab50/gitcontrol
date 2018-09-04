@@ -1,4 +1,4 @@
-# gitctrl | README
+# gitsane | README
 
 * * *
 
@@ -8,7 +8,7 @@ Have dozens of local repositories to manage?  If you are like me and your averag
 
 Don't get mad - get control.
 
-[gitctrl](https://github.com/fstab50/gitctrl) is a CLI utility for maintaining volumes of git repositories on local machine.
+[gitsane](https://github.com/fstab50/gitsane) is a CLI utility for maintaining volumes of git repositories on local machine.
 
 
 ## Dependencies
