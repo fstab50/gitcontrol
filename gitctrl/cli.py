@@ -310,17 +310,18 @@ def update_repos(root_node, fix, debug):
 
     cmd = 'git pull  > /dev/null 2>&1; echo $?'
     exceptions = []
+    original = current_branch('.')
+    branches = [original]
 
     for repo in build_index(root_node):
         repository = repo['location'].split('/')[-1]
         os.chdir(repo['location'])
-        branches = [current_branch('.')]
         branches.extend(BRANCHES)
         for branch in branches:
             stdout_message(f'Updating repository {repository} branch {branch}')
             stdout_message(subprocess.getoutput('git checkout %s' % branch))
             stdout_message(subprocess.getoutput('git pull'))
-            if subprocess.getoutput(cmd) == 1:
+            if int(subprocess.getoutput(cmd)) == 1:
                 exceptions.append(repository)
         # reset to original branch
         stdout_message(subprocess.getoutput('git checkout %s' % original))
