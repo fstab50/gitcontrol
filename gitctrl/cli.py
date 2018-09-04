@@ -308,7 +308,7 @@ def update_repos(root_node, fix, debug):
         name = repo['location'].split('/')[-1]
         os.chdir(repo['location'])
         original = current_branch('.')
-        stdout_message(f'Updating repository located at {name}')
+        stdout_message(f'Updating repository {name} branch {original}')
         stdout_message(subprocess.getoutput('git pull'))
         for branch in BRANCHES:
             stdout_message(f'Updating repository {name} branch {branch}')
