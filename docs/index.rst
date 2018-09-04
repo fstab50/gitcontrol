@@ -1,5 +1,5 @@
 ============================================
-gitctrl | Automated AWS Access Key Rotation
+gitsane | Automated AWS Access Key Rotation
 ============================================
 
 .. toctree::
