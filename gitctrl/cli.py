@@ -174,6 +174,32 @@ def source_url(path):
     return url
 
 
+def current_branch(path):
+    """
+    Returns:
+        git repository source url, TYPE: str
+    """
+    cmd = 'git branch'
+    os.chdir(path)
+
+    try:
+        if '.git' in os.listdir('.'):
+            branch = subprocess.getoutput(cmd).split('\n')[0].split('*')[1][1:]
+        else:
+            ex = Exception(
+                '%s: Unable to identify current branch - path not a git repository: %s' %
+                (inspect.stack()[0][3], path))
+            raise ex
+    except IndexError:
+        logger.exception(
+                '%s: problem retrieving git branch for %s' %
+                (inspect.stack()[0][3], path)
+            )
+        # NOTE: >> add repo to exception list here <<
+        return ''
+    return branch
+
+
 def summary(repository_list):
     """ Prints summary stats """
     count = len(repository_list)
@@ -281,12 +307,15 @@ def update_repos(root_node, fix, debug):
     for repo in build_index(root_node):
         name = repo['location'].split('/')[-1]
         os.chdir(repo['location'])
+        original = current_branch('.')
         stdout_message(f'Updating repository located at {name}')
         stdout_message(subprocess.getoutput('git pull'))
         for branch in BRANCHES:
             stdout_message(f'Updating repository {name} branch {branch}')
             stdout_message(subprocess.getoutput('git checkout %s' % branch))
             stdout_message(subprocess.getoutput('git pull'))
+        # reset to original branch
+        stdout_message(subprocess.getoutput('git checkout %s' % original))
     return True
 
     # check date of local file; if exists
