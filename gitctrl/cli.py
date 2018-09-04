@@ -184,7 +184,9 @@ def current_branch(path):
 
     try:
         if '.git' in os.listdir('.'):
-            branch = subprocess.getoutput(cmd).split('\n')[0].split('*')[1][1:]
+
+            branch = subprocess.getoutput('git branch').split('*')[1].split('\n')[0][1:]
+
         else:
             ex = Exception(
                 '%s: Unable to identify current branch - path not a git repository: %s' %
@@ -220,9 +222,10 @@ def main(**kwargs):
     else:
         return False
 
-    if update:
-        return update_repos(root, remediate, debug)
-    return True
+    exception_list = update_repos(root, remediate, debug)
+    if not exception_list:
+        return True
+    return False
 
 
 def option_configure(debug=False, path=None):
@@ -304,19 +307,24 @@ def update_repos(root_node, fix, debug):
     Return:
         Success | Failure, TYPE: bool
     """
+
+    cmd = 'git pull  > /dev/null 2>&1; echo $?'
+    exceptions = []
+
     for repo in build_index(root_node):
-        name = repo['location'].split('/')[-1]
+        repository = repo['location'].split('/')[-1]
         os.chdir(repo['location'])
-        original = current_branch('.')
-        stdout_message(f'Updating repository {name} branch {original}')
-        stdout_message(subprocess.getoutput('git pull'))
-        for branch in BRANCHES:
-            stdout_message(f'Updating repository {name} branch {branch}')
+        branches = [current_branch('.')]
+        branches.extend(BRANCHES)
+        for branch in branches:
+            stdout_message(f'Updating repository {repository} branch {branch}')
             stdout_message(subprocess.getoutput('git checkout %s' % branch))
             stdout_message(subprocess.getoutput('git pull'))
+            if subprocess.getoutput(cmd) == 1:
+                exceptions.append(repository)
         # reset to original branch
         stdout_message(subprocess.getoutput('git checkout %s' % original))
-    return True
+    return exceptions
 
     # check date of local file; if exists
     # if recent file, skip index; else run index
