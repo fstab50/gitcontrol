@@ -5,7 +5,7 @@
 # --- declarations  --------------------------------------------------------------------------------
 
 
-PROJECT := gitctrl
+PROJECT := gitsane
 CUR_DIR = $(shell pwd)
 PYTHON_VERSION := python3
 PYTHON3_PATH := $(shell which $(PYTHON_VERSION))
@@ -24,7 +24,7 @@ VERSION_FILE = $(CUR_DIR)/$(PROJECT)/_version.py
 # --- rollup targets  ------------------------------------------------------------------------------
 
 
-.PHONY: fresh-install fresh-test-install deploy-test deploy-prod
+.PHONY: zero-source-install zero-test-install deploy-test deploy-prod
 
 zero-source-install: clean source-install   ## Install (source: local). Zero prebuild artifacts
 
