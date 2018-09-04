@@ -2,6 +2,8 @@
 gitsane | Utility for managing local git repositories
 -----------------------------------------------------------
 
+PACKAGE: gitsane
+
 `gitsane`: Performs the following functions on your local machine:
 
 * updates all repositories
