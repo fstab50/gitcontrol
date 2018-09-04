@@ -42,12 +42,12 @@ General Questions
 
 .. code:: bash
 
-    $ gitctrl --profile default --operation up          # rotate (change out) keys
+    $ gitsane --profile default --operation up          # rotate (change out) keys
 
 
 List keys for the default awscli user: ::
 
-    $ gitctrl --profile default --operation list        # list key information
+    $ gitsane --profile default --operation list        # list key information
 
 
 Back to :ref:`Frequently Asked Questions` Index
@@ -56,11 +56,11 @@ Back to :ref:`Frequently Asked Questions` Index
 
 .. _QG1:
 
-**Q**: I have 2 access key sets associated with my IAM user. Which set will ``gitctrl`` replace when I rotate access keys?
+**Q**: I have 2 access key sets associated with my IAM user. Which set will ``gitsane`` replace when I rotate access keys?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-**A**: In short, ``gitctrl`` compares the age of the two keysets in your account
+**A**: In short, ``gitsane`` compares the age of the two keysets in your account
 
     Keyup examines the keys associated with your IAM user and replaces the oldest, *active* keyset.
         -  Oldest keys are deprecated
@@ -96,7 +96,7 @@ Back to :ref:`Frequently Asked Questions` Index
 
 .. code:: bash
 
-    $ gitctrl --profile myIAMuser --user-name JoeUser --operation up
+    $ gitsane --profile myIAMuser --user-name JoeUser --operation up
 
         # myIAMuser:  profile name alias for an IAM user with admin IAM permissions
         # JoeUser:    The IAM user account for which you wish to rotate access keys
@@ -113,16 +113,16 @@ Logging & Log Configuration
 
 .. _QL0:
 
-**Q**: How do I configure logging for ``gitctrl``?
+**Q**: How do I configure logging for ``gitsane``?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**A**: Logging is turned off by default for a new installation of ``gitctrl``.
+**A**: Logging is turned off by default for a new installation of ``gitsane``.
 
     To turn on logging, start the configure menu via the following command:
 
 .. code:: bash
 
-    $ gitctrl --configure
+    $ gitsane --configure
 
 Answer 'True' when asked to enable logging.
 
@@ -135,16 +135,16 @@ Next select from one of two options:
 
 .. _QL1:
 
-**Q**: Why doesn't ``gitctrl`` produce any log output?
+**Q**: Why doesn't ``gitsane`` produce any log output?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**A**: Logging is turned off by default for a new installation of ``gitctrl``.
+**A**: Logging is turned off by default for a new installation of ``gitsane``.
 
     To turn on logging, start the configure menu via the following command:
 
 .. code:: bash
 
-    $ gitctrl --configure
+    $ gitsane --configure
 
 Answer 'True' when asked to enable logging.  In order to turn on logging you must set the `ENABLE_LOGGING`
 parameter to True.  The configuration file schema shows this paramter below.
@@ -154,9 +154,9 @@ parameter to True.  The configuration file schema shows this paramter below.
     }
         "LOGGING": {
             "ENABLE_LOGGING": "True",
-            "LOG_FILENAME": "gitctrl.log",
+            "LOG_FILENAME": "gitsane.log",
             "LOG_MODE": "FILE",
-            "LOG_PATH": "/home/blake/logs/gitctrl.log"
+            "LOG_PATH": "/home/blake/logs/gitsane.log"
         }
     }
 
@@ -188,11 +188,11 @@ to for daily access key rotation @ 0700 hrs every morning:
 
 .. code:: bash
 
-    # gitctrl auto rotate
-    0 7 * * *  gitctrl --profile johndoe --operation up --auto
+    # gitsane auto rotate
+    0 7 * * *  gitsane --profile johndoe --operation up --auto
 
 
-The ``--auto`` switch supresses all output to stdout, so ``gitctrl`` produces no output
+The ``--auto`` switch supresses all output to stdout, so ``gitsane`` produces no output
 to the cli.   Logging output is retained and the only way to troubleshoot any issues while
 operating in auto mode; thus, it is highly recommended that you ensure that logging is
 enabled and working.
@@ -224,8 +224,8 @@ You should see the following output:
     # Notice that tasks will be started based on the cron's system
     # daemon's notion of time and timezones.
 
-    # gitctrl auto rotate
-    0 7 * * 5  gitctrl --profile myUser --operation up --auto
+    # gitsane auto rotate
+    0 7 * * 5  gitsane --profile myUser --operation up --auto
 
 
 Other Crontab Scheduler Examples:
@@ -236,7 +236,7 @@ Weekly Rotation every Sat 10:00 AM:
 .. code:: bash
 
     # weekly
-    0 10 * * 6  KEYUP=$(which gitctrl);  $KEYUP --profile johndoe --operation up --auto
+    0 10 * * 6  KEYUP=$(which gitsane);  $KEYUP --profile johndoe --operation up --auto
 
 
 Weekly access key rotation (every Friday) for another IAM user, but using your
@@ -244,8 +244,8 @@ account permissions to perform the rotation:
 
 .. code:: bash
 
-    # gitctrl auto rotate
-    0 7 * * 5 gitctrl --profile myUser  --operation up  --auto
+    # gitsane auto rotate
+    0 7 * * 5 gitsane --profile myUser  --operation up  --auto
 
 
 
@@ -258,22 +258,22 @@ Back to :ref:`Frequently Asked Questions` Index
 **Q**: Is it ok to rotate access keys while I have `STS temporary credentials <https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html>`__ present in my local awscli configuration?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**A**: ``gitctrl`` has special logic to avoid disrupting STS Temporary Credentials if they
+**A**: ``gitsane`` has special logic to avoid disrupting STS Temporary Credentials if they
        are present in your local awscli configuration.  The following summarizes the
-       logic ``gitctrl`` employs when dealing with temporary credentials:
+       logic ``gitsane`` employs when dealing with temporary credentials:
 
-        - ``gitctrl`` detects when STS credentials are present in the local credentials files
+        - ``gitsane`` detects when STS credentials are present in the local credentials files
 
-        - If temporary credentials are detected, ``gitctrl`` attempts to determine if
+        - If temporary credentials are detected, ``gitsane`` attempts to determine if
           they are active by trying to authenicate to `Amazon STS <https://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html>`__
           using 2 sets of temporary credentials.
 
         - **If authentication fails**:
-          ``gitctrl`` assumes the temporary credentials are expired and ignores them.
+          ``gitsane`` assumes the temporary credentials are expired and ignores them.
           key rotation proceeds automatically as normal
 
         - **If authentication succeeds**:
-          ``gitctrl`` assumes the temporary credentials are active and prohibits
+          ``gitsane`` assumes the temporary credentials are active and prohibits
           access key rotation.
 
 
@@ -293,7 +293,7 @@ Miscellaneous Questions
 
 **A**: Call the ``keyconfig`` script.
 
-    You can display ``gitctrl``'s local configuration file via by calling the console script:
+    You can display ``gitsane``'s local configuration file via by calling the console script:
 
 .. code:: bash
 

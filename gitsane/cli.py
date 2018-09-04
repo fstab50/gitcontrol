@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
 Summary:
-    Project gitctrl
-        - gitctrl manages and updates all the repositories on your local maachine
+    Project gitsane
+        - gitsane manages and updates all the repositories on your local maachine
         - reproduce
 
 Module Args:
@@ -15,15 +15,15 @@ import inspect
 import argparse
 import platform
 import subprocess
-from gitctrl.statics import PACKAGE, CONFIG_SCRIPT, local_config
-from gitctrl.help_menu import menu_body
-from gitctrl.script_utils import export_json_object, import_file_object, read_local_config
-from gitctrl.script_utils import stdout_message, bool_assignment, debug_mode, os_parityPath
-from gitctrl.colors import Colors
-from gitctrl import about, logd, __version__
+from gitsane.statics import PACKAGE, CONFIG_SCRIPT, local_config
+from gitsane.help_menu import menu_body
+from gitsane.script_utils import export_json_object, import_file_object, read_local_config
+from gitsane.script_utils import stdout_message, bool_assignment, debug_mode, os_parityPath
+from gitsane.colors import Colors
+from gitsane import about, logd, __version__
 
 try:
-    from gitctrl.oscodes_unix import exit_codes
+    from gitsane.oscodes_unix import exit_codes
     os_type = 'Linux'
     user_home = os.getenv('HOME')
     splitchar = '/'                             # character for splitting paths (linux)
@@ -31,7 +31,7 @@ try:
     TEXT = Colors.LT2GRAY
     TITLE = Colors.WHITE + Colors.BOLD
 except Exception:
-    from gitctrl.oscodes_win import exit_codes    # non-specific os-safe codes
+    from gitsane.oscodes_win import exit_codes    # non-specific os-safe codes
     os_type = 'Windows'
     user_home = os.getenv('username')
     splitchar = '\\'                            # character for splitting paths (windows)
@@ -174,6 +174,34 @@ def source_url(path):
     return url
 
 
+def current_branch(path):
+    """
+    Returns:
+        git repository source url, TYPE: str
+    """
+    cmd = 'git branch'
+    os.chdir(path)
+
+    try:
+        if '.git' in os.listdir('.'):
+
+            branch = subprocess.getoutput('git branch').split('*')[1].split('\n')[0][1:]
+
+        else:
+            ex = Exception(
+                '%s: Unable to identify current branch - path not a git repository: %s' %
+                (inspect.stack()[0][3], path))
+            raise ex
+    except IndexError:
+        logger.exception(
+                '%s: problem retrieving git branch for %s' %
+                (inspect.stack()[0][3], path)
+            )
+        # NOTE: >> add repo to exception list here <<
+        return ''
+    return branch
+
+
 def summary(repository_list):
     """ Prints summary stats """
     count = len(repository_list)
@@ -194,9 +222,10 @@ def main(**kwargs):
     else:
         return False
 
-    if update:
-        return update_repos(root, remediate, debug)
-    return True
+    exception_list = update_repos(root, remediate, debug)
+    if not exception_list:
+        return True
+    return False
 
 
 def option_configure(debug=False, path=None):
@@ -269,20 +298,34 @@ def recent(file_path):
 
 def update_repos(root_node, fix, debug):
     """
-    Update git repositories from local fs discovery
+    Summary:
+        Update git repositories from local fs discovery
+    Args:
+        :root_node (str):
+        :fix (bool): if True, take action to update failed git pull; False do nothing
+        :debug (bool): if True, verbose output
     Return:
         Success | Failure, TYPE: bool
     """
+
+    cmd = 'git pull  > /dev/null 2>&1; echo $?'
+    exceptions = []
+    original = current_branch('.')
+    branches = [original]
+
     for repo in build_index(root_node):
-        name = repo['location'].split('/')[-1]
+        repository = repo['location'].split('/')[-1]
         os.chdir(repo['location'])
-        stdout_message(f'Updating repository located at {name}')
-        stdout_message(subprocess.getoutput('git pull'))
-        for branch in BRANCHES:
-            stdout_message(f'Updating repository {name} branch {branch}')
+        branches.extend(BRANCHES)
+        for branch in branches:
+            stdout_message(f'Updating repository {repository} branch {branch}')
             stdout_message(subprocess.getoutput('git checkout %s' % branch))
             stdout_message(subprocess.getoutput('git pull'))
-    return True
+            if int(subprocess.getoutput(cmd)) == 1:
+                exceptions.append(repository)
+        # reset to original branch
+        stdout_message(subprocess.getoutput('git checkout %s' % original))
+    return exceptions
 
     # check date of local file; if exists
     # if recent file, skip index; else run index

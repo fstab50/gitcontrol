@@ -1,6 +1,6 @@
 """
 
-gitctrl :  Copyright 2018-2019, Blake Huber
+gitsane :  Copyright 2018-2019, Blake Huber
 
 This program is free software: you can redistribute it and/or
 modify it under the terms of the MIT License as published by
@@ -25,7 +25,7 @@ from setuptools.command.develop import develop
 from setuptools.command.install import install
 from subprocess import check_call
 from codecs import open
-import gitctrl
+import gitsane
 
 
 requires = [
@@ -59,13 +59,13 @@ class PostInstall(install):
 
 
 setup(
-    name='gitctrl',
-    version=gitctrl.__version__,
+    name='gitsane',
+    version=gitsane.__version__,
     description='Command line utility for managing local git repositories',
     long_description=read('DESCRIPTION.rst'),
-    url='https://github.com/fstab50/gitctrl',
-    author=gitctrl.__author__,
-    author_email=gitctrl.__email__,
+    url='https://github.com/fstab50/gitsane',
+    author=gitsane.__author__,
+    author_email=gitsane.__email__,
     license='MIT',
     classifiers=[
         'Topic :: System :: Shells',
@@ -85,7 +85,7 @@ setup(
     python_requires='>=3.4, <4',
     entry_points={
         'console_scripts': [
-            'gitctrl=gitctrl.cli:init_cli'
+            'gitsane=gitsane.cli:init_cli'
         ]
     },
     zip_safe=False

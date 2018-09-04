@@ -6,7 +6,7 @@ import inspect
 import logging
 import logging.handlers
 
-from gitctrl.statics import local_config
+from gitsane.statics import local_config
 
 syslog = logging.getLogger()
 syslog.setLevel(logging.DEBUG)

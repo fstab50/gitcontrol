@@ -100,7 +100,7 @@ Redhat Enterprise Linux v7.X / Centos 7.X
 
 .. code:: bash
 
-        $ sudo -H pip3 install gitctrl
+        $ sudo -H pip3 install gitsane
 
 -  :ref:`verify`
 
@@ -142,7 +142,7 @@ Ubuntu v16.04+, Ubuntu Variants
 
 .. code:: bash
 
-        $ sudo -H pip3 install gitctrl
+        $ sudo -H pip3 install gitsane
 
 -  :ref:`verify`
 
@@ -165,11 +165,11 @@ Amazon Linux v2016+
 
         $ sudo yum install python35-pip / python34-pip    # latest your distribution supports
 
--  Install gitctrl:
+-  Install gitsane:
 
 .. code:: bash
 
-        $ sudo -H pip3 install gitctrl
+        $ sudo -H pip3 install gitsane
 
 -  :ref:`verify`
 
@@ -184,11 +184,11 @@ Microsoft Windows 7
 
 -  Install Python3 by downloading the latest `Python3 version for Windows <https://www.python.org/downloads/windows/>`__
 
-- Install gitctrl:
+- Install gitsane:
 
 .. code:: powershell
 
-    $ pip3 install gitctrl
+    $ pip3 install gitsane
 
 -  :ref:`verify`
 
@@ -203,11 +203,11 @@ Microsoft Windows 10
 
 -  Install Python3 by downloading the latest `Python3 version for Windows <https://www.python.org/downloads/windows/>`__
 
-- Install gitctrl:
+- Install gitsane:
 
 .. code:: powershell
 
-    $ pip3 install gitctrl
+    $ pip3 install gitsane
 
 -  :ref:`verify`
 
@@ -222,13 +222,13 @@ Build Source Code
 
 To install locally from source code, do the following:
 
-Check out the ``gitctrl`` code repository:
+Check out the ``gitsane`` code repository:
 
 .. code:: bash
 
-    $ git clone https://blakeca00@bitbucket.org/blakeca00/gitctrl.git
+    $ git clone https://blakeca00@bitbucket.org/blakeca00/gitsane.git
 
-    $ cd gitctrl/
+    $ cd gitsane/
 
 Display the list of make targets:
 
@@ -259,10 +259,10 @@ Verify Your Installation
 
 .. code:: bash
 
-    $ gitctrl --version
+    $ gitsane --version
 
 
-.. figure:: ../assets/gitctrl-version.png
+.. figure:: ../assets/gitsane-version.png
 
 Back to :ref:`install` Table of Contents
 

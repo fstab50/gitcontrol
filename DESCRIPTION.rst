@@ -1,8 +1,10 @@
 
-gitctrl | Utility for managing local git repositories
+gitsane | Utility for managing local git repositories
 -----------------------------------------------------------
 
-`gitctrl`: Performs the following functions on your local machine:
+PACKAGE: gitsane
+
+`gitsane`: Performs the following functions on your local machine:
 
 * updates all repositories
 * updates specific branches, if present in the repo

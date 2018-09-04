@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# gitctrl documentation build configuration file, created by
+# gitsane documentation build configuration file, created by
 # sphinx-quickstart on Wed Dec 27 08:20:05 2017.
 #
 # This file is execfile()d with the current directory set to its
@@ -21,7 +21,7 @@ import os
 import sys
 import sphinx_rtd_theme
 sys.path.insert(0, os.path.abspath('..'))
-from gitctrl import __version__
+from gitsane import __version__
 
 # -- General configuration ------------------------------------------------
 
@@ -55,7 +55,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'gitctrl'
+project = 'gitsane'
 copyright = '2017-2018, Blake Huber'
 author = 'Blake Huber'
 
@@ -123,7 +123,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'gitctrldoc'
+htmlhelp_basename = 'gitsanedoc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -150,7 +150,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'gitctrl.tex', 'gitctrl Documentation',
+    (master_doc, 'gitsane.tex', 'gitsane Documentation',
      'Blake Huber', 'manual'),
 ]
 
@@ -160,7 +160,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'gitctrl', 'gitctrl Documentation',
+    (master_doc, 'gitsane', 'gitsane Documentation',
      [author], 1)
 ]
 
@@ -171,8 +171,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'gitctrl', 'gitctrl Documentation',
-     author, 'gitctrl', 'One line description of project.',
+    (master_doc, 'gitsane', 'gitsane Documentation',
+     author, 'gitsane', 'One line description of project.',
      'Miscellaneous'),
 ]
 

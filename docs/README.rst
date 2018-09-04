@@ -2,10 +2,10 @@
 Purpose
 --------
 
-``gitctrl`` automates IAM user access key rotation from the cli by allowing ad hoc or
+``gitsane`` automates IAM user access key rotation from the cli by allowing ad hoc or
 scheduled renewal of your access key credentials via the Amazon API's.
 
-**gitctrl**:
+**gitsane**:
 
     * is a safe and reliable way to rotate (renew) access keys to Amazon Web Services as frequently as you wish, with minimal effort and risk.
     * requires only the profile name of your IAM user in your local `awscli configuration <https://docs.aws.amazon.com/cli/latest/reference/>`__
@@ -39,10 +39,10 @@ Before starting, please take a moment to read the following:
 
 **Other Resources**:
 
--  Source Code: `gitctrl bitbucket repository <https://bitbucket.org/blakeca00/gitctrl>`__
+-  Source Code: `gitsane bitbucket repository <https://bitbucket.org/blakeca00/gitsane>`__
 -  Amazon `Secure Token Service (STS) <https://docs.aws.amazon.com/STS/latest/APIReference/Welcome.html>`__ Documentation
 -  Amazon Web Services' `Command Line Interface (awscli) <https://docs.aws.amazon.com/cli/latest/reference/>`__ Documentation
--  **gitctrl** `Open Source License Agreement <./license.html>`__
+-  **gitsane** `Open Source License Agreement <./license.html>`__
 
 **Current Release**:
 
@@ -57,12 +57,12 @@ Documentation
 
 **Online**:
 
-- Complete html documentation available at `http://gitctrl.readthedocs.io <http://gitctrl.readthedocs.io>`__.
+- Complete html documentation available at `http://gitsane.readthedocs.io <http://gitsane.readthedocs.io>`__.
 
 **Download**:  Available via download in the formats below
 
-- `pdf format <https://readthedocs.org/projects/gitctrl/downloads/pdf/latest/>`__
-- `Amazon Kindle <https://readthedocs.org/projects/gitctrl/downloads/epub/latest/>`__ (epub) format
+- `pdf format <https://readthedocs.org/projects/gitsane/downloads/pdf/latest/>`__
+- `Amazon Kindle <https://readthedocs.org/projects/gitsane/downloads/epub/latest/>`__ (epub) format
 
 --------------------
 
@@ -74,7 +74,7 @@ Display help menu to see available options and functionality.
 .. code:: bash
 
 
-        $ gitctrl -h
+        $ gitsane -h
 
 .. figure:: ../assets/help-menu.png
    :alt:
