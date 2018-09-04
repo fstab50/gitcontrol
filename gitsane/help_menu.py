@@ -6,8 +6,8 @@ Help Menu
 
 """
 
-from gitctrl.statics import PACKAGE, CONFIG_SCRIPT
-from gitctrl.colors import Colors
+from gitsane.statics import PACKAGE, CONFIG_SCRIPT
+from gitsane.colors import Colors
 
 
 PKG_ACCENT = Colors.ORANGE
@@ -20,8 +20,8 @@ synopsis_cmd = (
     PARAM_ACCENT + '--operation ' + Colors.RESET + '[OPERATION]'
     )
 
-url_doc = Colors.URL + 'http://gitctrl.readthedocs.io' + Colors.RESET
-url_sc = Colors.URL + 'https://github.com/fstab50/gitctrl' + Colors.RESET
+url_doc = Colors.URL + 'http://gitsane.readthedocs.io' + Colors.RESET
+url_sc = Colors.URL + 'https://github.com/fstab50/gitsane' + Colors.RESET
 
 menu_body = Colors.BOLD + """
   DESCRIPTION""" + Colors.RESET + """

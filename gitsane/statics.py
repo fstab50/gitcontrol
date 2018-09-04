@@ -1,6 +1,6 @@
 """
 Summary:
-    gitctrl Project-level Defaults and Settings
+    gitsane Project-level Defaults and Settings
 
 Module Attributes:
     - user_home (TYPE str):
@@ -10,14 +10,14 @@ Module Attributes:
     - config_path (TYPE str):
         default for stsaval config files, includes config_dir (~/.stsaval)
     - key_deprecation (TYPE str):
-        Deprecation logic that gitctrl uses when 2 keys exist for a user.
+        Deprecation logic that gitsane uses when 2 keys exist for a user.
 """
 
 import os
 import inspect
 import logging
-from gitctrl.script_utils import read_local_config, get_os, os_parityPath
-from gitctrl import __version__
+from gitsane.script_utils import read_local_config, get_os, os_parityPath
+from gitsane import __version__
 
 logger = logging.getLogger(__version__)
 logger.setLevel(logging.INFO)
@@ -42,7 +42,7 @@ else:
     # section with appropriate pathnames
 
     # project
-    PACKAGE = 'gitctrl'
+    PACKAGE = 'gitsane'
     LICENSE = 'GPL v3'
     LICENSE_DESC = 'General Public License v3'
     version = __version__
@@ -55,12 +55,12 @@ else:
     config_path = user_home + '/' + config_dir + '/' + config_subdir + '/' + config_filename
 
     # exception file
-    ex_filename = 'gitctrl.exceptions'
+    ex_filename = 'gitsane.exceptions'
 
     # logging parameters
     enable_logging = False
     log_mode = 'FILE'
-    log_filename = 'gitctrl.log'
+    log_filename = 'gitsane.log'
     log_dir = user_home + '/' + 'logs'
     log_path = log_dir + '/' + log_filename
 
