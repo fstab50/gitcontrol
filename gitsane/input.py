@@ -31,5 +31,8 @@ class ParseInputFile():
     def parse(self, fname=None):
         """Returns sorted, complex json object"""
         jobject = self.jsonobject if fname is None else self.read(fname)
-        s = sorted(jobject, key=lambda x: x['location'], reverse=False)
+        try:
+            s = sorted(jobject, key=lambda x: x['location'], reverse=False)
+        except KeyError:
+            return jobject    # return unsorted object
         return s
