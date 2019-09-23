@@ -20,6 +20,7 @@ from gitsane.help_menu import menu_body
 from gitsane.script_utils import export_json_object, import_file_object, read_local_config
 from gitsane.script_utils import stdout_message, bool_assignment, debug_mode, os_parityPath
 from gitsane.colors import Colors
+from gitsane.input import ParseInputFile
 from gitsane import about, logd, __version__
 
 try:
