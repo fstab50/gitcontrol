@@ -32,6 +32,12 @@ def create_directory_structure(path_list):
 
 
 def create_repositories(path_list):
+    """
+    Actual creation of git repositories via cloning operations.
+    Repositories created within the directory structure created
+    in previous operation with create_directory_structure()
+    module function execution.
+    """
     for pdict in path_list:
         # constants
         _root = pdict['repo'].split('/')[-1].split('.')[0]
