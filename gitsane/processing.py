@@ -35,24 +35,26 @@ def create_repositories(path_list):
     for pdict in path_list:
         # constants
         _root = pdict['repo'].split('/')[-1].split('.')[0]
-        _location = pdict['path'].strip()
+        _path = pdict['path'].strip()
+        _location = pdict['location'].strip()
         _repository = pdict['repo'].strip()
 
-        # cd to location
-        os.chdir(_location)
-
-        # log status
-        stdout_message(f'Creating repository {_root} at location {_location}')
-
         # clone repository
-        cmd = 'git clone {}'.format(_repository)
-        stdout = subprocess.getoutput(cmd)
-        for line in stdout.split('\n'):
-            print(line)
+        if not os.path.exists(_location):
+            # log status
+            stdout_message(f'Creating repository {_root} at location {_location}')
+            # cd to location
+            os.chdir(_path)
+            cmd = 'git clone {}'.format(_repository)
+            stdout = subprocess.getoutput(cmd)
+            for line in stdout.split('\n'):
+                print(line)
+        else:
+            stdout_message(f'Skipping creation of repository {_location} - Preexisting.')
     return True
 
 
-def replicate_gitspace(filepath):
+def replicate_landscape(filepath):
     parsed_json = parse_input(filepath)
     if create_directory_structure(parsed_json):
         return create_repositories(parsed_json)

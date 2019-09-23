@@ -20,7 +20,7 @@ from gitsane.help_menu import menu_body
 from gitsane.script_utils import export_json_object, import_file_object, read_local_config
 from gitsane.script_utils import stdout_message, bool_assignment, debug_mode, os_parityPath
 from gitsane.colors import Colors
-from gitsane.processing import replicate_gitspace
+from gitsane.processing import replicate_landscape
 from gitsane import about, logd, __version__
 
 try:
@@ -359,7 +359,7 @@ def init_cli():
         return r
 
     elif args.create:
-        return replicate_gitspace(args.create)
+        return replicate_landscape(args.create)
 
     else:
         if precheck() and args.index:              # if prereqs set, run
