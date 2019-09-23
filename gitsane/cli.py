@@ -20,7 +20,7 @@ from gitsane.help_menu import menu_body
 from gitsane.script_utils import export_json_object, import_file_object, read_local_config
 from gitsane.script_utils import stdout_message, bool_assignment, debug_mode, os_parityPath
 from gitsane.colors import Colors
-from gitsane.input import ParseInputFile
+from gitsane.processing import replicate_gitspace
 from gitsane import about, logd, __version__
 
 try:
@@ -266,10 +266,10 @@ def options(parser, help_menu=False):
         TYPE: argparse object, parser argument set
     """
     parser.add_argument("-i", "--index", dest='index', action='store_true', required=False)
-    parser.add_argument("-C", "--configure", dest='configure', action='store_true', required=False)
+    parser.add_argument("-c", "--configure", dest='configure', action='store_true', required=False)
     parser.add_argument("-d", "--debug", dest='debug', action='store_true', required=False)
     parser.add_argument("-h", "--help", dest='help', action='store_true', required=False)
-    parser.add_argument("-r", "--create-repos", dest='create', type=str, required=False)
+    parser.add_argument("-r", "--create-repos", dest='create', nargs=1, required=False)
     parser.add_argument("-u", "--update", dest='update', type=str, default='all', required=False)
     parser.add_argument("-V", "--version", dest='version', action='store_true', required=False)
     return parser.parse_args()
@@ -357,6 +357,9 @@ def init_cli():
     elif args.configure:
         r = option_configure(args.debug, local_config['PROJECT']['CONFIG_PATH'])
         return r
+
+    elif args.create:
+        return replicate_gitspace(args.create)
 
     else:
         if precheck() and args.index:              # if prereqs set, run
