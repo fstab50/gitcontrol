@@ -25,7 +25,7 @@ import logging
 import inspect
 from pygments import highlight, lexers, formatters
 from gitsane.colors import Colors
-from gitsane import __version__
+from gitsane._version import __version__
 
 # globals
 MODULE_VERSION = '1.14'
