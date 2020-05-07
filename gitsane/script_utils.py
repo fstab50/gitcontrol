@@ -165,7 +165,6 @@ def get_os(detailed=False):
 
         if os_type == 'Linux':
             os_detail = platform.uname()
-            distribution = platform.linux_distribution()
             HOME = os.environ['HOME']
             username = os.getenv('USER')
         elif os_type == 'Windows':
@@ -184,7 +183,6 @@ def get_os(detailed=False):
         return {
                 'os_type': os_type,
                 'os_detail': os_detail,
-                'linux_distribution': distribution,
                 'HOME': HOME
             }
     elif detailed and os_type == 'Windows':
