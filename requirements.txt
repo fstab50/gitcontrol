@@ -1,4 +1,6 @@
+libtools
 pandoc
 pkginfo
 Pygments
 twine
+versionpro

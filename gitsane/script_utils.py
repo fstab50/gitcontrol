@@ -25,7 +25,7 @@ import logging
 import inspect
 from pygments import highlight, lexers, formatters
 from gitsane.colors import Colors
-from gitsane import __version__
+from gitsane._version import __version__
 
 # globals
 MODULE_VERSION = '1.14'
@@ -165,7 +165,6 @@ def get_os(detailed=False):
 
         if os_type == 'Linux':
             os_detail = platform.uname()
-            distribution = platform.linux_distribution()
             HOME = os.environ['HOME']
             username = os.getenv('USER')
         elif os_type == 'Windows':
@@ -184,7 +183,6 @@ def get_os(detailed=False):
         return {
                 'os_type': os_type,
                 'os_detail': os_detail,
-                'linux_distribution': distribution,
                 'HOME': HOME
             }
     elif detailed and os_type == 'Windows':

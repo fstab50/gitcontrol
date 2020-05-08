@@ -17,7 +17,7 @@ import os
 import inspect
 import logging
 from gitsane.script_utils import read_local_config, get_os, os_parityPath
-from gitsane import __version__
+from gitsane._version import __version__
 
 logger = logging.getLogger(__version__)
 logger.setLevel(logging.INFO)
