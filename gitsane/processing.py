@@ -27,7 +27,7 @@ def create_directory_structure(path_list):
         if os.path.exists(path):
             continue
         else:
-            os.makedirs(path)
+            os.makedirs(os.path.join(os.path.expanduser('~'), path))
     return True
 
 
@@ -50,7 +50,7 @@ def create_repositories(path_list):
             # log status
             stdout_message(f'Creating repository {_root} at location {_location}')
             # cd to location
-            os.chdir(os.path.join('~/', _path))
+            os.chdir(os.path.join(os.path.expanduser('~'), _path))
             cmd = 'git clone {}'.format(_repository)
             stdout = subprocess.getoutput(cmd)
             for line in stdout.split('\n'):
