@@ -49,6 +49,8 @@ def create_repositories(path_list):
         if not os.path.exists(_location):
             # log status
             stdout_message(f'Creating repository {_root} at location {_location}')
+            # create directory structure
+            os.makedirs(_path)
             # cd to location
             os.chdir(_path)
             cmd = 'git clone {}'.format(_repository)
