@@ -50,7 +50,7 @@ def create_repositories(path_list):
             # log status
             stdout_message(f'Creating repository {_root} at location {_location}')
             # cd to location
-            os.chdir(_path)
+            os.chdir(os.path.join('/home/', _path))
             cmd = 'git clone {}'.format(_repository)
             stdout = subprocess.getoutput(cmd)
             for line in stdout.split('\n'):
