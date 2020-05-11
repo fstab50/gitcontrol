@@ -40,10 +40,10 @@ def create_repositories(path_list):
     """
     for pdict in path_list:
         # constants
-        _root = pdict['repo'].split('/')[-1].split('.')[0]
+        _root = pdict['repository'].split('/')[-1].split('.')[0]
         _path = pdict['path'].strip()
         _location = pdict['location'].strip()
-        _repository = pdict['repo'].strip()
+        _repository = pdict['repository'].strip()
 
         # clone repository
         if not os.path.exists(_location):
