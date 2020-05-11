@@ -359,7 +359,7 @@ def init_cli():
         return r
 
     elif args.create:
-        return replicate_landscape(args.create)
+        return replicate_landscape(args.create[0])
 
     else:
         if precheck() and args.index:              # if prereqs set, run
